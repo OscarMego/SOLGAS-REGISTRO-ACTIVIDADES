@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E14E5B88-9ED6-42C0-88EE-FA8A7C41138F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bean\ActividadBean.cs" />
+    <Compile Include="bean\BeanCorreos.cs" />
+    <Compile Include="bean\ClienteInstalacionBean.cs" />
+    <Compile Include="bean\GeneralTipoBean.cs" />
+    <Compile Include="bean\GraficoBean.cs" />
+    <Compile Include="bean\LogOportunidadBean.cs" />
+    <Compile Include="bean\MapBean.cs" />
+    <Compile Include="bean\NegocioBean.cs" />
+    <Compile Include="bean\ClienteBean.cs" />
+    <Compile Include="bean\ComboBean.cs" />
+    <Compile Include="bean\ConfiguracionBean.cs" />
+    <Compile Include="bean\NextelBean.cs" />
+    <Compile Include="bean\PaginateGeneralTipoBean.cs" />
+    <Compile Include="bean\PaginateReporteServicioBean.cs" />
+    <Compile Include="bean\ServiciosBean.cs" />
+    <Compile Include="bean\SubTipoActividadBean.cs" />
+    <Compile Include="bean\SubTipoActividadDetBean.cs" />
+    <Compile Include="bean\ContactoBean.cs" />
+    <Compile Include="bean\ErrorCargaBean.cs" />
+    <Compile Include="bean\EtapaBean.cs" />
+    <Compile Include="bean\EtapaDetalleBean.cs" />
+    <Compile Include="bean\FileCargaBean.cs" />
+    <Compile Include="bean\FotoBean.cs" />
+    <Compile Include="bean\GrupoDetalleBean.cs" />
+    <Compile Include="bean\GeocercaBean.cs" />
+    <Compile Include="bean\GrupoBean_1.cs" />
+    <Compile Include="bean\ManualBean.cs" />
+    <Compile Include="bean\MenuBean.cs" />
+    <Compile Include="bean\OportunidadBean.cs" />
+    <Compile Include="bean\PaginateClienteBean.cs" />
+    <Compile Include="bean\PaginateConfiguracionOportunidadBean.cs" />
+    <Compile Include="bean\PaginateConfOportunidadDetBean.cs" />
+    <Compile Include="bean\PaginateContactoBean.cs" />
+    <Compile Include="bean\PaginateEtapaBean.cs" />
+    <Compile Include="bean\PaginateGrupoDetalleBean.cs" />
+    <Compile Include="bean\PaginateGrupoBean_1.cs" />
+    <Compile Include="bean\PaginateOportunidadBean.cs" />
+    <Compile Include="bean\PaginatePerfilBean.cs" />
+    <Compile Include="bean\PaginateTipoActividadBean.cs" />
+    <Compile Include="bean\PaginateGrupoBean.cs" />
+    <Compile Include="bean\PaginateUsuarioBean.cs" />
+    <Compile Include="bean\PaginateZonaBean.cs" />
+    <Compile Include="bean\ParejaBean.cs" />
+    <Compile Include="bean\PerfilBean.cs" />
+    <Compile Include="bean\Recurso.cs" />
+    <Compile Include="bean\ReporteBean.cs" />
+    <Compile Include="bean\RolBean.cs" />
+    <Compile Include="bean\Tipo.cs" />
+    <Compile Include="bean\TipoActividadBean.cs" />
+    <Compile Include="bean\GrupoBean.cs" />
+    <Compile Include="bean\TipoControlBean.cs" />
+    <Compile Include="bean\UsuarioBean.cs" />
+    <Compile Include="bean\ZonaBean.cs" />
+    <Compile Include="ClienteInstalacionModel.cs" />
+    <Compile Include="GeneralTipoModel.cs" />
+    <Compile Include="LogOportunidadModel.cs" />
+    <Compile Include="NegocioModel.cs" />
+    <Compile Include="CargaModel.cs" />
+    <Compile Include="ClienteModel.cs" />
+    <Compile Include="Combo.cs" />
+    <Compile Include="ComboModel.cs" />
+    <Compile Include="ConfiguracionModel.cs" />
+    <Compile Include="NextelModel.cs" />
+    <Compile Include="ServiciosModel.cs" />
+    <Compile Include="SubTipoActividadModel.cs" />
+    <Compile Include="Constantes.cs" />
+    <Compile Include="ContactoModel.cs" />
+    <Compile Include="CorreoModel.cs" />
+    <Compile Include="DescargaModel.cs" />
+    <Compile Include="Enumerados.cs" />
+    <Compile Include="EtapaModel.cs" />
+    <Compile Include="functions\KMLUtils.cs" />
+    <Compile Include="functions\OracleDac.cs" />
+    <Compile Include="functions\SqlConnector.cs" />
+    <Compile Include="functions\Tarea.cs" />
+    <Compile Include="GeneralDetalleModel.cs" />
+    <Compile Include="GeneralModel.cs" />
+    <Compile Include="GeocercaModel.cs" />
+    <Compile Include="IdiomaCultura.cs" />
+    <Compile Include="ManagerConfiguracion.cs" />
+    <Compile Include="MenuModel.cs" />
+    <Compile Include="OportunidadModel.cs" />
+    <Compile Include="PerfilModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteModel.cs" />
+    <Compile Include="TipoActividadModel.cs" />
+    <Compile Include="GrupoModel.cs" />
+    <Compile Include="TrackingModel.cs" />
+    <Compile Include="UsuarioModel.cs" />
+    <Compile Include="WS\MapWebServiceAgpsService.cs" />
+    <Compile Include="WS\Service.cs" />
+    <Compile Include="WS\SmsWSServiceService.cs" />
+    <Compile Include="ZonaModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Microsoft.SqlServer.PipelineHost.dll" />
+    <Content Include="bin\Debug\Model.dll" />
+    <Content Include="bin\Debug\Model.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Model.1.0.0.0.nupkg" />
+    <None Include="bin\Debug\Model.1.0.0.0.symbols.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

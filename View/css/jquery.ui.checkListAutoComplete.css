@@ -1,0 +1,57 @@
+ .checkList {
+           /* border: 1px solid #ccc;*/
+            display: block;
+            height: 30px;
+            width:202px;
+        }
+
+            .checkList .toolbar {
+                /*background-color: #eee;
+                border-bottom: 1px solid #ccc;*/
+                padding: 0px;
+                overflow: hidden;
+            }
+
+                .checkList .toolbar .txtFilter {
+                    width: 170px;
+                   margin-left: 0px;
+                   margin-top:1px;
+                       height: 24px;
+                    border: 1px solid #ccc;
+                }
+
+                .checkList .toolbar .filterBox {
+                    display: inline-block;
+                    float: right;
+                    
+                }
+
+                .checkList .toolbar .chkAll {
+                    margin-top: 7px;
+                    border-right: 1px solid #ccc;
+                }
+
+            .checkList .table {
+                /*width: 100%;*/
+                    width: 206px;
+                border-spacing: 0;
+            }
+
+                .checkList .table td {
+                    padding: 2px;
+                    border-bottom: 1px solid #eee;
+                    background-color: white;
+                }
+
+            .checkList tr td:first-child {
+                width: 16px;
+            }
+
+            .checkList tr td label {
+                display: inline-block;
+                width: 100%;
+            }
+
+        .highlight {
+            background-color: white;
+        }

@@ -1,0 +1,73 @@
+﻿/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+.column {
+  height: auto;
+  width: 98%;
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 5px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 3px #ccc;
+  -ms-box-shadow: inset 0 0 3px #ccc;
+  box-shadow: inset 0 0 3px #ccc;
+  text-align: center;
+  cursor: move;
+}
+.column header {
+  text-align: left;	
+  color: #766a61;
+  box-shadow: 5px;
+  padding: 1px;  
+  background-color:#e7e7e7;
+  border-bottom: 1px solid #ddd;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -ms-border-radius-topleft: 10px;
+  border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -ms-border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-right-radius: 10px;
+}
+
+.drag-header-title
+{
+    color: #766a61;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0;
+    font-weight:bold;
+    padding: 4px; 
+}
+
+.drag-header-close {
+    border: 1px solid #666;
+    border-radius: 35px;
+    margin-top: 0px;
+    padding: 3px;
+    color: #fff;
+    float: right;
+    font-size: 20px;
+    line-height: 10px;
+    background-color: #666;
+    /*background: none repeat scroll 0 0 transparent;*/
+    cursor: pointer;
+}
+
+#control-columns
+{
+    width:305px; 
+    margin:0 auto;
+}

@@ -1,0 +1,128 @@
+/* icono mantenimiento */
+.mainmenuheader a div#submenuheader-icon-mantenimiento { 
+	background-image:url(../../images/layout/mnu_mant.gif); 
+	width:22px; 
+	height:14px;
+	padding:0px;
+	margin-left:2px;
+	margin-right:0px;
+	margin-top:4px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-mantenimiento { 
+	background-position : 0 -14px; 
+}
+
+
+/* icono trademarket */
+.mainmenuheader a div#submenuheader-icon-trademarket { 
+	background-image:url(../../images/layout/mnu_trade.gif); 
+	width:16px; 
+	height:11px;
+	padding:0px;
+	margin-left:3px;
+	margin-right:5px;
+	margin-top:5px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-trademarket { 
+	background-position : 0 -11px; 
+}
+
+
+/* icono carga */
+.mainmenuheader a div#submenuheader-icon-carga { 
+	background-image:url(../../images/layout/mnu_carga.gif); 
+	width:11px; 
+	height:16px;
+	padding:0px;
+	margin-left:5px;
+	margin-right:6px;
+	margin-top:3px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-carga { 
+	background-position : 0 -16px; 
+}
+
+/*localizacion*/
+.mainmenuheader a div#submenuheader-icon-loc { 
+		background-image:url(../../images/layout/mnu_mant.gif); 
+	width:22px; 
+	height:14px;
+	padding:0px;
+	margin-left:2px;
+	margin-right:0px;
+	margin-top:4px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-loc { 
+	background-position : 0 -14px; 
+}
+
+/*SMS*/
+
+.mainmenuheader a div#submenuheader-icon-sms { 
+		background-image:url(../../images/layout/mnu_mant.gif); 
+	width:22px; 
+	height:14px;
+	padding:0px;
+	margin-left:2px;
+	margin-right:0px;
+	margin-top:4px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-sms { 
+	background-position : 0 -14px; 
+}
+
+
+/* icono reporte */
+.mainmenuheader a div#submenuheader-icon-reporte { 
+	background-image:url(../../images/layout/mnu_reporte.gif); 
+	width:15px; 
+	height:16px;
+	padding:0px;
+	margin-left:3px;
+	margin-right:5px;
+	margin-top:2px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-reporte { 
+	background-position : 0 -16px; 
+}
+
+
+/* icono dashboard */
+.mainmenuheader a div#submenuheader-icon-dashboard { 
+	background-image:url(../../images/layout/mnu_dash.gif); 
+	width:16px; 
+	height:12px;
+	padding:0px;
+	margin-left:3px;
+	margin-right:5px;
+	margin-top:4px;
+	margin-bottom:0px;
+	float:left;
+}
+
+.mainmenuheader a:hover div#submenuheader-icon-dashboard { 
+	background-position : 0 -12px; 
+}
+
+
+
+
+

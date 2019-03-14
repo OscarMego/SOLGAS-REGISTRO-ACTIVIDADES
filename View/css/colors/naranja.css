@@ -1,0 +1,115 @@
+/*INI IMAGEN*/
+#img_logo_top{
+background-image: url(../images/logo/login_logoNextel.png);
+}
+.cz-login-lat-left .img{
+background-image: url(../imagery/login/layout/arrow-left.png);
+}
+.cz-login-lat-right .img{
+background-image: url(../imagery/login/layout/arrow-right.png);
+}
+/*FIN IMAGEN*/
+
+/*INI COLOR NARANJA O AZUL*/
+
+/*Color naraja o azul claro*/
+.about .pretty-table th{
+	background: #FF8E59;
+}
+.about .pretty-table th{
+	border: 1px solid #FF8E59;
+}
+
+/*Color naraja o azul normal*/
+#content-notify .notify,#cz-barr-top,.cz-menu-lateral-title-icon,.cz-form-content-input-button,.cz-other-box-center-box-title,.cz-principal-menu-option-button.cz-ehover .cz-principal-menu-option-image,.cz-form-box-content-subtitle,.table th,.cz-form-subcontent-title,#btnIngresar,.cz-login-box-body,.cz-login-submain,#cz-error{
+	background-color: #DB4E1F;
+}
+.cz-form-step-image-complete,.cz-form-step-image-complete-full,.cz-form-step-image-complete-end{
+	background-color: #DB4E1F!important;
+}
+.cz-other-box-center-box-title,.cz-form-box-content-subtitle,.cz-form-subcontent-title{
+	border-right:1px solid  #DB4E1F;
+}
+.cz-other-box-center-box-title,.cz-form-box-content-subtitle,.cz-form-subcontent-title{
+	border-left:1px solid #DB4E1F;
+}
+.cz-menu-lateral-title-status,.cz-menu-lateral-suboption a.hover,.about .pretty-table th,.cz-principal-menu-option-button.cz-ehover .cz-principal-menu-option-title a{
+	color:  #DB4E1F;
+}
+
+/*Color naraja o azul oscuro*/
+.cz-form-content-input-button:hover,#cz-login-input-user,#cz-login-input-pass,.cz-control-user-option:hover{
+	background-color: #BE471F;
+}
+#content-notify .notify,#cz-barr-top{
+	border: 1px solid #BE471F;
+}
+.cz-other-box-center-box-title,.cz-form-box-content-subtitle,.table th,.cz-form-subcontent-title{
+	border-bottom: 1px solid #BE471F;
+}
+#btnIngresar{
+	border-bottom: 3px solid #BE471F;
+}
+/*FIN COLOR NARANJA O AZUL*/
+
+
+
+
+/* --------------- La parte de aca para abajo no es importante cambiar los colores ------------------*/
+
+
+
+
+/*INI COLOR PLOMO*/
+/*color plomo claro*/
+.cz-principal-menu-suboption:hover,.cz-form-content-input-select{
+	background-color: #E6E6E6;
+}
+.cz-principal-menu-option,#cz-control-menu-options,#cz-util-hidden-right-ultpos-geo,.cz-form-content-input-select-visible-button,.cz-form-content-input-text-visible-button{
+	border-left: 1px solid #E6E6E6;
+}
+.cz-principal-menu-option,#cz-control-menu-options,#cz-util-hidden-left,#cz-util-hidden-right-ultpos-geo,#cz-menu-lateral-left,#cz-menu-lateral-right{
+	border-right: 1px solid #E6E6E6;
+}
+.cz-control-menu-option,#cz-util-hidden-top,.cz-menu-lateral-title{
+	border-bottom: 1px solid #E6E6E6;
+}
+.cz-menu-lateral-title,#cz-login-body{
+	border-top : 1px solid #E6E6E6;
+}
+
+/*color plomo normal*/
+.cz-form-content-input-select-visible,.cz-principal-menu-suboption,.cz-form-content-input-text-visible{
+	border: 1px solid #ACABAB;
+}
+#cz-control-menu-options,.cz-form-content-input-text-visible.focus, .cz-form-content-input-select-visible.focus, .cz-form-content-input-calendar-visible.focus{
+	box-shadow: 0 0 5px #ACABAB;
+}
+
+/*color plomo oscuro*/
+#content-notify .alert,#cz-box-footer2,#cz-login-head{
+	background: #383838;
+}
+/*FIN COLOR PLOMO*/
+
+
+
+
+
+/*INI COLOR CREMA*/
+.cz-control-menu-option:hover{
+	background: #F3F3F3;
+}
+.cz-other-box-center-box-option:hover:hover{
+	background-color: #F3F3F3;
+}
+/*FIN COLOR CREMA*/
+
+
+
+
+/*INI COLOR BLANCO*/
+#cz-barr-principal,.cz-principal-menu-suboption,#cz-control-menu-options,#cz-util-hidden-left,#cz-util-hidden-right-ultpos-geo,#cz-menu-lateral-left,#cz-menu-lateral-right,.cz-form-box-content{
+	background: white;
+}
+/*INI COLOR BLANCO*/

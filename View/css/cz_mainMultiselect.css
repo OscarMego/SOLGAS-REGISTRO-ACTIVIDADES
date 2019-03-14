@@ -1,0 +1,64 @@
+﻿/*style multiselect*/
+
+.multiSelectCombo {
+    overflow: inherit !important;
+    line-height: 19px;
+}
+.btn .caret {
+    margin-left: 91px !important;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+    background: transparent !important;
+}
+
+.multiselect.dropdown-toggle, .open > .dropdown-menu {
+    width: 198px;
+}
+
+p.multiselect-selected-text {
+    text-align: left;
+}
+
+
+.divBuscaNoFecha .multiselect.dropdown-toggle, .divBuscaNoFecha .open > .dropdown-menu {
+    width: 169px;
+    height: 26px;
+    padding: 0 9px;
+}
+
+.divBuscaNoFecha .open > .dropdown-menu {
+    overflow: auto;
+    height: 120px;
+}
+
+.multiselect.dropdown-toggle {
+    background: transparent;
+    border: 1px solid #cccccc;
+}
+
+.multiselect-container.dropdown-menu {
+    padding: 0 !important;
+}
+
+.highcharts-credits {
+    display: none;
+}
+
+.open > .dropdown-menu {
+    overflow: auto;
+    height: 120px;
+}
+
+span.multiselect-native-select select {
+    display: none;
+    width: 0 !important;
+}
+
+.multiselect-container > li > .input-group input {
+    width: 140px;
+}
+
+.multiselect-container > li > .input-group .input-group-btn, .multiselect-container > li > .input-group .input-group-addon {
+    display: none;
+}

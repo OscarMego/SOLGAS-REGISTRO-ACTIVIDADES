@@ -1,0 +1,100 @@
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: arial;
+	background-image:url(../../images/layout/bg_login.jpg);
+	background-repeat: repeat;	
+	
+}
+
+#box {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 950px;
+    height: 540px;
+    margin-top: -270px;
+    margin-left: -475px;
+}
+
+#box-top {
+	width: 950px;
+	height: 41px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#box-content {
+	width: 950px;
+	height: 479px;
+	padding: 0px;
+	background-image: url(../../images/layout/bg_loginbox.png);
+	background-repeat: no-repeat;
+}
+
+#box-bottom {
+	width: 950px;
+	height: 20px;
+	margin: 0px;
+	padding: 0px;
+	background-color:#FFF;
+}
+	
+#box-bottom p {
+	margin: 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#999;
+}
+
+#box-bottom-text-left {
+	float:left;
+	padding-top: 3px;
+	padding-left: 5px;
+}
+
+#box-bottom-text-right {
+	float:right;
+	padding-top: 3px;
+	padding-right: 5px;
+}
+
+#loginbox {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 420px;
+    height: 260px;
+    margin-top: -152px;
+    margin-left: -210px;
+	background-color:#FFF;
+	
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 10px;
+	border: 1px solid #999;
+}
+
+#loginbox-title{
+	display:table;
+	margin-top:30px;
+	margin-left:10px;
+	margin-bottom:15px;
+	width: 95%;
+	height: auto;
+}
+		
+#loginbox-content {
+	margin-left:10px;
+	margin-bottom:10px;
+	width: 95%;
+	height: auto;
+}

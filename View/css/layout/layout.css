@@ -1,0 +1,131 @@
+.contentseparacion-west-dragging ,
+.contentseparacion-west-open:hover	
+{	background: #ffffff url(../../images/layout/separador_vertical.png) repeat-y; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;	
+}
+
+.contentseparacion-west-open  {
+	 background:#ffffff url(../../images/layout/separador_vertical.png) repeat-y  ; 
+	 border-top: 0px solid #ffffff;
+	 border-bottom: 0px solid #ffffff;
+}
+
+.contentseparacion-west-closed {
+	background:#ffffff url(../../images/layout/separador_vertical.png) repeat-y; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+
+.contentseparacion-north-dragging ,
+.contentseparacion-north-open:hover	
+{	background: #ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;	
+}
+
+.contentseparacion-north-open  {
+	background:#ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x  ; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+
+.contentseparacion-north-closed {
+	background:#ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+
+.contentseparacion-south-dragging ,
+.contentseparacion-south-open:hover	
+{	background: #ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;	
+}
+
+.contentseparacion-south-open  {
+	background:#ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x  ; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+
+.contentseparacion-south-closed {
+	background:#ffffff url(../../images/layout/bg_top_cont_body.gif) repeat-x; 
+	border-top: 0px solid #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+
+
+/* content_toggler */
+
+.contenttoggler-north-open {
+	background: url(../../images/layout/btn_exp_vert.png) no-repeat;
+	width:15px !important;
+	height:12px !important;
+	display:block;
+	margin: 0 auto;
+}
+
+.contenttoggler-north-open:hover{
+	background-position:bottom;		
+}
+
+.contenttoggler-north-closed {
+	background: url(../../images/layout/btn_exp_vert2.png) no-repeat;
+	width:15px !important;
+	height:12px !important;
+	display:block;
+	margin: 0 auto;
+}
+
+.contenttoggler-north-closed:hover{
+	background-position:bottom;
+}
+
+.contenttoggler-south-open {
+	background: url(../../images/layout/btn_exp_vert2.png) no-repeat;
+	width:15px !important;
+	height:12px !important;
+	display:block;
+	margin: 0 auto;
+}
+
+.contenttoggler-south-open:hover{
+	background-position:bottom;
+}
+
+.contenttoggler-south-closed {
+	background: url(../../images/layout/btn_exp_vert.png) no-repeat;
+	width:15px !important;
+	height:12px !important;
+	display:block;
+	margin: 0 auto;
+}
+
+.contenttoggler-south-closed:hover{
+	background-position:bottom;
+}
+
+.contenttoggler-west-open  {
+	background:url(../../images/layout/btn_exp_hor.png) no-repeat;
+	width:13px !important;
+	height:16px !important;
+	display:block;
+}
+
+.contenttoggler-west-open:hover{
+	background-position:bottom;
+}
+
+.contenttoggler-west-closed  {
+	background:url(../../images/layout/btn_exp_hor2.png) no-repeat;
+	width:13px !important;
+	height:16px !important;
+	display:block;
+}
+
+.contenttoggler-west-closed:hover{
+	background-position:bottom;
+}
+
+

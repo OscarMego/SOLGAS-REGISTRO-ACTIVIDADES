@@ -1,0 +1,69 @@
+.ac_results {
+	padding: 0px;
+	border: 1px solid black #ACACAC;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+	min-width: 220px;
+    margin-left: -1px;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden!important;
+    position: relative;
+    z-index: 4;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+    line-height: 9px;
+	overflow: hidden;
+	border-bottom: 1px solid #CCC;
+    color: #757575;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: white;
+}
+
+.ac_over {
+	background-color: #383838;
+	color: white!important;
+}
+
+.divclearable {
+	padding-right:5px;	
+}
+
+a.clearlink {
+	background: url("../../Images/icons/close-button.png") no-repeat scroll 0 0 transparent;
+	background-position: center center;
+	cursor: pointer;
+	zoom: 1;
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display:inline;	
+	height: 16px;
+	width: 16px;
+	z-index: 2000;
+	border: 0px solid;
+}
+a.clearlink:hover {
+	background: url("../../Images/icons/close-button.png") no-repeat scroll -14px 0 transparent;
+	background-position: center center;
+}
