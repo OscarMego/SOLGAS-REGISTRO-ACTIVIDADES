@@ -14,10 +14,8 @@ namespace Model.bean
         public String Cargo { get; set; }
         public Int64 IdCliente { get; set; }
         public String Cliente { get; set; }
-        public Int64 IdZona { get; set; }
         public Int64 IdClienteInstalacion { get; set; }
-        public String Zona { get; set; }
-
+        public String codInstalacion { get; set; }
         public String ClienteInstalacion { get; set; }
 
         public String Flag { get; set; }

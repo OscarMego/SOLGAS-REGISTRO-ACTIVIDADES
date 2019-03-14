@@ -52,6 +52,7 @@ public partial class Mantenimiento_Contactos_ContactosGrid : System.Web.UI.Page
                     Cargo = Cargo,
                     IdCliente = int.Parse((IdCliente == "" ? "0" : IdCliente)),
                     IdClienteInstalacion = int.Parse((IdClienteInstalacion == "" ? "0" : IdClienteInstalacion)),
+                    codInstalacion="",
                     page = int.Parse(pagina),
                     rows = int.Parse(filas),
                     Flag=chkFlgHabilitado

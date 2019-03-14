@@ -51,7 +51,7 @@
 <body>
 
     <div class="container">
-        <h1>Formulario B2C</h1>
+        <h1>Formulario B2B</h1>
     </div>
 
     <form id="form1" runat="server">
@@ -66,7 +66,6 @@
                 <asp:HiddenField ID="hddLongitude" runat="server" Value="0" />
                 <asp:HiddenField ID="hddIdContacto" runat="server" />
                 <asp:HiddenField ID="hddIdUsuario" runat="server" />
-                <asp:HiddenField ID="hddIdClienteInstalacion" runat="server" />
 
                 <div class="row">
                     <div class="col-sm-12 form-group">
@@ -90,7 +89,7 @@
                         <asp:DropDownList ID="cboSubTipoActividad" runat="server" class="requerid form-control"></asp:DropDownList>
                     </div>
                     <div class="col-sm-12 form-group">
-                        <label for="txtCliente">Distribuidor</label>
+                        <label for="txtCliente">Cliente</label>
                         <span style="color: #b94a48">*</span>
                         <input type="text" id="txtCliente" runat="server" class="requerid form-control" maxlength="80" idval="0" />
                     </div>
@@ -192,7 +191,6 @@
     <div class="modal fade bd-example-modal-lg" id="mdNuevoContacto" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>
     <div class="modal fade bd-example-modal-lg" id="mdNewOportunidad" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     </div>
-
 
     <script src="../../js/jquery-3.1.1.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>

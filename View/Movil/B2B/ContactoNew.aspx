@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactoNew.aspx.cs" Inherits="View.Movil.B2B.ContactoNew" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <body>
@@ -31,6 +32,11 @@
                             <span style="color: #b94a48">*</span>
                             <input type="text" id="txtCargoC" runat="server" class="requerid form-control" maxlength="80" />
                         </div>
+                        <div class="form-group">
+                            <label for="MddlIdInstalacion">Instalación</label>
+                            <span style="color: #b94a48">*</span>
+                            <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="requerid form-control"></asp:DropDownList>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -57,6 +63,7 @@
                 strData.EmailC = $('#txtEmailC').val();
                 strData.CargoC = $('#txtCargoC').val();
                 strData.idclienteC = $('#txtCliente').attr("idval");
+                strData.codInstalacion = $('#MddlIdInstalacion').val();
                 return strData;
             }
         </script>

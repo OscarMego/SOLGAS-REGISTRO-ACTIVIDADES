@@ -26,43 +26,39 @@ namespace View.Movil.B2C
             else
             {
                 Session["lstPerfiles"] = PerfilController.GetAll(new PerfilBean { FlgHabilitado = "T" });
-                
+
                 if (!IsPostBack)
                 {
                     string json = new System.IO.StreamReader(Request.InputStream).ReadToEnd();
-
                     Dictionary<string, string> dataJSON = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-                    
-                    if (dataJSON != null )
+
+                    if (dataJSON != null)
                     {
-                        String Codigo = dataJSON["codigo"].ToString();
-
-                        
-                        GrupoBean obj = GrupoController.Get(new GrupoBean { IDGrupo = int.Parse( dataJSON["codigo"].ToString()) });
-                        
-
-                        if (obj != null)
+                        String Codigo = dataJSON["CodCliente"].ToString();
+                        CargaCombos(Codigo);
+                        String codInstalacion = dataJSON["codInstalacion"].ToString();
+                        if (!String.IsNullOrEmpty(codInstalacion))
                         {
-                            //CargaComboPadre(obj.IDGeneralTipo);
-                            //hdIdTipo.Value = (obj.IDGeneralTipo).ToString();
-                            //MtxtCodigo.Value = obj.Codigo;
-                            //MtxtDescripcion.Value = obj.Nombre;
-                            //MddlPadre.SelectedValue = obj.CodigoPadreGeneral;
-                            //MtxtCodigo.Disabled = true;
+                            MddlIdInstalacion.SelectedValue = codInstalacion.Trim();
+                            MddlIdInstalacion.Attributes.Add("disabled", "disabled");
                         }
-
-                    }
-                    else
-                    {
-                        
-                        
                     }
                 }
             }
         }
-
-        
-                               
+        private void CargaCombos(String idCliente)
+        {
+            try
+            {
+                var lstComboBean = ClienteController.getClienteInstalacion(idCliente).Where(x => x.Habilitado != "F").ToList();
+                Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "codInstalacion", "Descripcion");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.LogException(ex, "Error :" + this);
+                throw new Exception("ERROR: " + ex.Message);
+            }
+        }
 
     }
 }

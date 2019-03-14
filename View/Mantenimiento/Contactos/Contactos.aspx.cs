@@ -54,7 +54,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
     }
     #region WebService
     [WebMethod]
-    public static String Insert(string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion)
+    public static String Insert(string Nombre, string Telefono, string Email, string Cargo, int IdCliente, string codInstalacion)
     {
         try
         {
@@ -65,7 +65,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                 Email = Email,
                 Cargo = Cargo,
                 IdCliente = IdCliente,
-                IdClienteInstalacion = IdClienteInstalacion
+                codInstalacion = codInstalacion
                 //IdZona = IdZona
             };
             ContactoController.Insert(item);
@@ -80,7 +80,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
     }
 
     [WebMethod]
-    public static String Update(int IdContacto, string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion)
+    public static String Update(int IdContacto, string Nombre, string Telefono, string Email, string Cargo, int IdCliente, String codInstalacion)
     {
         try
         {
@@ -92,7 +92,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                 Email = Email,
                 Cargo = Cargo,
                 IdCliente = IdCliente,
-                IdClienteInstalacion = IdClienteInstalacion
+                codInstalacion = codInstalacion
             };
             ContactoController.Update(item);
             return "OK";
@@ -171,7 +171,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
     }
 
     [WebMethod]
-    public static List<ListItem> ComboClienteInstalacion(string idCliente, string idInstalacion)
+    public static List<ListItem> ComboClienteInstalacion(string idCliente, string codInstalacion)
     {
 
         if (idCliente != String.Empty && !idCliente.Equals("0"))
@@ -181,8 +181,8 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                 List<ListItem> lstComboBean = ClienteController.getClienteInstalacion(idCliente).Where(x => x.Habilitado != "F").Select(x => new ListItem()
                 {
                     Text = x.Descripcion.ToString(),
-                    Value = x.IDClienteInstalacion.ToString(),
-                    Selected = (idInstalacion == "0" ? false : (idInstalacion == x.IDClienteInstalacion.ToString() ? true : false)),
+                    Value = x.CodInstalacion.ToString(),
+                    Selected = (codInstalacion == "0" ? false : (codInstalacion == x.CodInstalacion.ToString() ? true : false)),
                 }).ToList();
                 return lstComboBean;
             }

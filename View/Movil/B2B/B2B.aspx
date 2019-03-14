@@ -66,7 +66,6 @@
                 <asp:HiddenField ID="hddLongitude" runat="server" Value="0" />
                 <asp:HiddenField ID="hddIdContacto" runat="server" />
                 <asp:HiddenField ID="hddIdUsuario" runat="server" />
-                <asp:HiddenField ID="hddIdClienteInstalacion" runat="server" />
 
                 <div class="row">
                     <div class="col-sm-12 form-group">

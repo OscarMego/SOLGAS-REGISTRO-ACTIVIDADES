@@ -58,7 +58,7 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MddlIdInstalacion">Instalación</label>
                                     <span style="color: #b94a48">*</span>
-                                    <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="requerid form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
 
                             </div>
@@ -86,9 +86,8 @@
                 strData.Telefono = $('#MtxtTelefono').val();
                 strData.Email = $('#MtxtEmail').val();
                 strData.Cargo = $('#MtxtCargo').val();
-                strData.IdCliente = $('#MhdiCodClie').val();
-                strData.IdClienteInstalacion = $('#MddlIdInstalacion').val();
-                //strData.IdZona = $('#MddlIdInstalacion').val();
+                strData.IdCliente = $('#MhdiCodClie').val() == '' ? 0 : $('#MhdiCodClie').val();
+                strData.codInstalacion = $('#MddlIdInstalacion').val();
                 strData.accion = $('#MhAccion').val();
 
                 return strData;
@@ -110,18 +109,17 @@
                 onSelect: function (suggestion) {
                     //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
                     $(this).attr("idval", suggestion.data);
-                    $('#MhdiCodClieIns').val(suggestion.data);
-                    var vCodClieInst = $('#MhdiCodClieIns').val();
-                    console.log(vCodClieInst);
-                    //ObternerClienteId(vCodClieInst);
+                    $('#MhdiCodClie').val(suggestion.data);
+                    debugger
                     cargaComboDSL(urlPrin + '/ComboClienteInstalacion', '#MddlIdInstalacion', 'SELECCIONE', {
-                        idCliente: suggestion.data, idInstalacion: $('#hddIdInstalacion').val()
+                        idCliente: suggestion.data, codInstalacion: $('#hddIdInstalacion').val() == '' ? '0' : $('#hddIdInstalacion').val()
                     });
                 },
                 onSearchStart: function (params) {
                     $(this).attr("idval", "");
+                    $('#MhdiCodClie').val('');
                     cargaComboDSL(urlPrin + '/ComboClienteInstalacion', '#MddlIdInstalacion', 'SELECCIONE', {
-                        idCliente: '0', idInstalacion: '0'
+                        idCliente: '0', codInstalacion: '0'
                     });
                     //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
                 },
@@ -158,8 +156,8 @@
             }
 
             //$(document).ready(function () {
-                $('#MtxtCliente').focus();
-              //  $('#MtxtNombre').focus();
+            $('#MtxtCliente').focus();
+            //  $('#MtxtNombre').focus();
             //});
         </script>
     </form>

@@ -187,11 +187,13 @@ function clearCampos() {//funcion encargada de limpiar los input
     $('#txtTelefono').val('');
     $('#txtCargo').val('');
     $('#txtObservaciones').val('');
+    $('#dvCambiarEtapa').hide();
     //window.location.reload(true);
 }
 function getCodClie() {
     var strData = new Object();
     strData.CodCliente = $('#txtCliente').attr("idval");
+    strData.codInstalacion = $('#txtCodInstalacion').val();
     return strData;
 }
 function getDataDim() {//funcion encargada de enviar los parametros para la insercion o edicion
@@ -210,7 +212,7 @@ function getDataDim() {//funcion encargada de enviar los parametros para la inse
     strData.observaciones = $('#txtObservaciones').val();
     strData.CodCliente = $('#txtCliente').attr("idval");
     strData.idContacto = $('#hddIdContacto').val();
-    strData.idClienteInstalacion = $('#hddIdClienteInstalacion').val();
+    strData.codInstalacion = $('#txtCodInstalacion').val();
     var controlDinam = "";
     debugger
     $(".controldinamico").each(function () {
@@ -236,7 +238,13 @@ function obtenerContactos() {
         addnotify("notify", "Debe seleccionar un cliente", "registeruser")
         return;
     }
-
+    if ($('#hddEsOportunidad').val() != 'T') {
+        var instalacion = $('#txtCodInstalacion').val();
+        if (instalacion.length == 0) {
+            addnotify("notify", "Debe seleccionar un codigo de instalción", "registeruser")
+            return;
+        }
+    }
     $.ajax({
         type: 'POST',
         url: urlCont,
@@ -264,7 +272,9 @@ function obtenerContactos() {
                 var telefonoContacto = $(this).find('.telefonoContacto').html();
                 $('#txtTelefono').val(telefonoContacto);
                 $('#User').modal('hide');
+                $('#ContactosLista').html('');
             });
+            $('.addRegC').show()
             $('#User').modal('show');
         },
         error: function (xhr, status, error) {
@@ -303,13 +313,24 @@ function obtenerInstalacion() {
                 $('#hddIdClienteInstalacion').val(IDClienteInstalacion);
                 var codInstalacion = $(this).find('.codInstalacion').html();
                 $('#txtCodInstalacion').val(codInstalacion);
-
+                $('#hddIdContacto').val('');
+                $('#txtContacto').val('');
+                $('#txtCargo').val('');
+                $('#txtMail').val('');
+                $('#txtTelefono').val('');
                 $('#User').modal('hide');
+                $('#ContactosLista').html('');
             });
+            $('.addRegC').hide()
             $('#User').modal('show');
         },
         error: function (xhr, status, error) {
             addnotify("notify", jQuery.parseJSON(xhr.responseText).Message, "registeruser");
+            $('#hddIdContacto').val('');
+            $('#txtContacto').val('');
+            $('#txtCargo').val('');
+            $('#txtMail').val('');
+            $('#txtTelefono').val('');
         }
     });
 
@@ -398,12 +419,13 @@ function addRegDim() {
         }
     });
 }
-/*Agrega Registros*/
+/*Agrega Contactos*/
 function addRegCon() {
     $('.addRegC').click(function (e) {
         $.ajax({
             type: 'POST',
             url: urlins,
+            data: JSON.stringify(getCodClie()),
             success: function (data) {
                 $("#mdNuevoContacto").html(data);
                 $('#mdNuevoContacto').modal('show');

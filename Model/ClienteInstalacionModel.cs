@@ -31,6 +31,7 @@ namespace Model
                         IDClienteInstalacion = row["IDClienteInstalacion"].ToString(),
                         Descripcion = row["Descripcion"].ToString(),
                         Habilitado = row["sel"].ToString(),
+                        CodInstalacion= row["CodInstalacion"].ToString(),
                     };
                     lobj.Add(obj);
                 }

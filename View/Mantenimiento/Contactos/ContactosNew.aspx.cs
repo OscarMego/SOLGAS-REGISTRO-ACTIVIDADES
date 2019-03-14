@@ -39,16 +39,17 @@ public partial class Mantenimiento_Contactos_ContactosNew : System.Web.UI.Page
 
                     ContactoBean obj = ContactoController.Get(new ContactoBean { IdContacto = int.Parse(dataJSON["codigo"].ToString()) });
                     myModalLabel.InnerText = "Editar Contacto";// + Model.bean.IdiomaCultura.getMensaje(Model.bean.IdiomaCultura.WEB_CONTACTO);
-                    CargaCombos(obj.IdClienteInstalacion.ToString()); MtxtIdContacto.Value = obj.IdContacto.ToString();
+                    CargaCombos(obj.IdCliente.ToString());
+                    MtxtIdContacto.Value = obj.IdContacto.ToString();
                     MtxtNombre.Value = obj.Nombre.ToString();
                     MtxtTelefono.Value = obj.Telefono;
                     MtxtEmail.Value = obj.Email;
                     MtxtCargo.Value = obj.Cargo;
-                    hddIdInstalacion.Value = obj.IdClienteInstalacion.ToString();
+                    hddIdInstalacion.Value = obj.codInstalacion;
                     MtxtCliente.Value = obj.Cliente.ToString();
                     MhdiCodClie.Value = obj.IdCliente.ToString();
                     //MhdiCodClieIns.Value = obj.IdClienteInstalacion.ToString();
-                    MddlIdInstalacion.SelectedValue = obj.IdClienteInstalacion.ToString();
+                    MddlIdInstalacion.SelectedValue = obj.codInstalacion.ToString();
 
 
                 }
@@ -67,7 +68,7 @@ public partial class Mantenimiento_Contactos_ContactosNew : System.Web.UI.Page
             //var lstComboBean = ZonaController.getClienteZonas(idCliente).Where(x => x.Flag != "F").ToList();
             var lstComboBean = ClienteController.getClienteInstalacion(idCliente).Where(x => x.Habilitado != "F").ToList();
             //Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "IdZona", "Nombre");
-            Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "IDClienteInstalacion", "Descripcion");
+            Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "codInstalacion", "Descripcion");
         }
         catch (Exception ex)
         {

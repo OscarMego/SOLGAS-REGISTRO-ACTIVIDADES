@@ -77,7 +77,7 @@ namespace View.Mantenimiento.Cliente
                 Utility.ComboNuevo(MddlIdZona, zona, "IdZona", "Nombre");
                 var negocio = NegocioController.GetAll(new NegocioBean { Nombre = "" });
                 Utility.ComboNuevo(MddlIdNegocio, negocio, "IdNegocio", "Nombre");
-                var usurio = UsuarioController.GetAll(new UsuarioBean {FlgHabilitado="T" });
+                var usurio = UsuarioController.GetAll(new UsuarioBean { FlgHabilitado = "T", IdPerfil = 4 });
                 Utility.ComboNuevo(MddlIdUsuario, usurio, "IdUsuario", "Nombres");
 
                 var rubro = GeneralTipoController.GetAll(new GeneralTipoBean { IdTipo = 1 });
@@ -187,15 +187,15 @@ namespace View.Mantenimiento.Cliente
                 }
                 else
                 {
-                    list[int.Parse(index)-1].IDCliente = IdCliente;
-                    list[int.Parse(index)-1].Descripcion = Descripcion;
-                    list[int.Parse(index)-1].IDUsuario = IdUsuario;
-                    list[int.Parse(index)-1].CodInstalacion = codInstalacion;
-                    list[int.Parse(index)-1].IDZona = idZona;
-                    list[int.Parse(index)-1].Descripcion = Descripcion;
-                    list[int.Parse(index)-1].Direccion = Direccion;
-                    list[int.Parse(index)-1].Referencia = Referencia;
-                    list[int.Parse(index)-1].Habilitado = "T";
+                    list[int.Parse(index) - 1].IDCliente = IdCliente;
+                    list[int.Parse(index) - 1].Descripcion = Descripcion;
+                    list[int.Parse(index) - 1].IDUsuario = IdUsuario;
+                    list[int.Parse(index) - 1].CodInstalacion = codInstalacion;
+                    list[int.Parse(index) - 1].IDZona = idZona;
+                    list[int.Parse(index) - 1].Descripcion = Descripcion;
+                    list[int.Parse(index) - 1].Direccion = Direccion;
+                    list[int.Parse(index) - 1].Referencia = Referencia;
+                    list[int.Parse(index) - 1].Habilitado = "T";
                     list[int.Parse(index) - 1].Zona = nombreZona;
                     list[int.Parse(index) - 1].Usuario = nombreUsuario;
                 }

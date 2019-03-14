@@ -279,7 +279,7 @@ namespace View.Movil.B2C
             }
         }
         [WebMethod]
-        public static String InsertFormulario(string id, string ConfOpor, String CodCliente, String controldinamico, String idContacto, String observaciones, String fecha, String latitud, String longitud, String idClienteInstalacion)
+        public static String InsertFormulario(string id, string ConfOpor, String CodCliente, String controldinamico, String idContacto, String observaciones, String fecha, String latitud, String longitud, String codInstalacion)
         {
             try
             {
@@ -315,7 +315,7 @@ namespace View.Movil.B2C
                     latitud = latitud,
                     longitud = longitud
                 };
-                var idop = OportunidadController.Insert(item, idClienteInstalacion);
+                var idop = OportunidadController.Insert(item, codInstalacion);
                 return idop.ToString();
             }
             catch (Exception ex)
@@ -355,9 +355,8 @@ namespace View.Movil.B2C
                     fecha = DateTime.Now
                 };
 
-                OportunidadController.InsertEtapa(item);
-
-                return "OK";
+                int idOp = OportunidadController.InsertEtapa(item);
+                return idOp.ToString();
             }
             catch (Exception ex)
             {
@@ -367,11 +366,11 @@ namespace View.Movil.B2C
         }
 
         [WebMethod]
-        public static ContactoBean InsertContact(String NombreC, String TelefonoC, String EmailC, String CargoC, String idclienteC)
+        public static ContactoBean InsertContact(String NombreC, String TelefonoC, String EmailC, String CargoC, String idclienteC, String codInstalacion)
         {
             try
             {
-                String idZona = HttpContext.Current.Session["lgn_idzona"].ToString();
+                //String idZona = HttpContext.Current.Session["lgn_idzona"].ToString();
                 ContactoBean item = new ContactoBean
 
                 {
@@ -380,7 +379,7 @@ namespace View.Movil.B2C
                     Email = EmailC,
                     Cargo = CargoC,
                     IdCliente = Int64.Parse(idclienteC),
-                    IdZona = Int64.Parse(idZona)
+                    codInstalacion = codInstalacion
                 };
                 ContactoController.Insert(item);
 
@@ -393,7 +392,7 @@ namespace View.Movil.B2C
             }
         }
         [WebMethod]
-        public static List<ContactoBean> getContacts(String CodCliente)
+        public static List<ContactoBean> getContacts(String CodCliente, String codInstalacion)
         {
             try
             {
@@ -401,7 +400,7 @@ namespace View.Movil.B2C
 
                 {
                     IdCliente = int.Parse(CodCliente),
-                    IdZona = int.Parse(HttpContext.Current.Session["lgn_idzona"].ToString())
+                    codInstalacion = codInstalacion
 
                 });
                 return item;

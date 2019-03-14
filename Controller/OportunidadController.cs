@@ -105,11 +105,11 @@ namespace Controller
         {
             return OportunidadModel.GetClientesOpor(cliente);
         }
-        public static Int32 Insert(OportunidadBean item, String idClienteInstalacion)
+        public static Int32 Insert(OportunidadBean item, String codInstalacion)
         {
             try
             {
-                return OportunidadModel.Insert(item, idClienteInstalacion);
+                return OportunidadModel.Insert(item, codInstalacion);
             }
             catch (Exception ex)
             {

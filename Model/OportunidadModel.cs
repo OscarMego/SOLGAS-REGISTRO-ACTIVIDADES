@@ -721,7 +721,7 @@ namespace Model
             }
             return lobj;
         }
-        public static Int32 Insert(OportunidadBean item, String idClienteInstalacion)
+        public static Int32 Insert(OportunidadBean item, String codInstalacion)
         {
             // Create a DataTable with the modified rows.  
             DataTable oDataTableLstCrtDin = new DataTable();
@@ -759,8 +759,8 @@ namespace Model
             parameter = new SqlParameter("@longitud", SqlDbType.Float);
             parameter.Value = item.longitud;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@idClienteInstalacion", SqlDbType.BigInt);
-            parameter.Value = idClienteInstalacion;
+            parameter = new SqlParameter("@codInstalacion", SqlDbType.VarChar,100);
+            parameter.Value = codInstalacion;
             alParameters.Add(parameter);
             return Convert.ToInt32(SqlConnector.executeScalar("spS_ManInsGRActividad", alParameters));
         }

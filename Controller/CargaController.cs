@@ -89,7 +89,7 @@ namespace Controller
         }
         private static FileCargaBean cargarUsuarios(string dataFilePath)
         {
-            String[][] mapping = new string[9][];
+            String[][] mapping = new string[8][];
             mapping[0] = new String[2];
             mapping[1] = new String[2];
             mapping[2] = new String[2];
@@ -98,7 +98,7 @@ namespace Controller
             mapping[5] = new String[2];
             mapping[6] = new String[2];
             mapping[7] = new String[2];
-            mapping[8] = new String[2];
+            //mapping[8] = new String[2];
 
             mapping[0][0] = "CODIGO";
             mapping[0][1] = "Codigo";
@@ -115,17 +115,17 @@ namespace Controller
             mapping[4][0] = "PERFIL";
             mapping[4][1] = "CodPerfil";
 
-            mapping[5][0] = "ZONA";
-            mapping[5][1] = "Zona";
+            //mapping[5][0] = "ZONA";
+            //mapping[5][1] = "Zona";
 
-            mapping[6][0] = "NEGOCIO";
-            mapping[6][1] = "Negocio";
+            mapping[5][0] = "NEGOCIO";
+            mapping[5][1] = "Negocio";
 
-            mapping[7][0] = "CORREO";
-            mapping[7][1] = "Email";
+            mapping[6][0] = "CORREO";
+            mapping[6][1] = "Email";
 
-            mapping[8][0] = "COORDINADOR";
-            mapping[8][1] = "Coordinador";
+            mapping[7][0] = "COORDINADOR";
+            mapping[7][1] = "Coordinador";
 
             return CargaModel.executeBC_XLS(dataFilePath, "dbo.TMP_Usuario", "USUARIOS", mapping, "USP_CARGAUSUARIO");
         }
@@ -218,14 +218,14 @@ namespace Controller
 
         private static FileCargaBean cargarContactos(string dataFilePath)
         {
-            String[][] mapping = new string[7][];
+            String[][] mapping = new string[6][];
             mapping[0] = new String[2];
             mapping[1] = new String[2];
             mapping[2] = new String[2];
             mapping[3] = new String[2];
             mapping[4] = new String[2];
             mapping[5] = new String[2];
-            mapping[6] = new String[2];
+            //mapping[6] = new String[2];
 
             mapping[0][0] = "NOMBRES";
             mapping[0][1] = "Nombres";
@@ -245,8 +245,8 @@ namespace Controller
             mapping[5][0] = "COD_INSTALACION";
             mapping[5][1] = "CodInstalacion";
 
-            mapping[6][0] = "COD_ZONA";
-            mapping[6][1] = "CodZona";
+            //mapping[6][0] = "COD_ZONA";
+            //mapping[6][1] = "CodZona";
             return CargaModel.executeBC_XLS(dataFilePath, "dbo.TMP_Contacto", "CONTACTOS", mapping, "USP_CARGACONTACTOS");
         }
     }
