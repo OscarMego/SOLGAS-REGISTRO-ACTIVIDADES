@@ -146,5 +146,11 @@ namespace Controller
             
             return lobj;
         }
+
+        public static List<ClienteInstalacionBean> getClienteInstalacion(String idCLiente)
+        {
+            return ClienteInstalacionModel.getClienteInstalacion(idCLiente);
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Controller
             {
                 if (GeneralTipoModel.Insert(item) == -1)
                 {
-                    throw new Exception("El código ingresado ya existe");
+                    throw new Exception("El código y el tipo ingresado ya existe");
                 }
             }
             catch (Exception ex)
@@ -32,7 +32,11 @@ namespace Controller
         {
             try
             {
-                GeneralTipoModel.Update(item);
+                if (GeneralTipoModel.Update(item) == -1)
+                {
+                    throw new Exception("El código y el tipo ingresado ya existe");
+                }
+                    
             }
             catch (Exception ex)
             {

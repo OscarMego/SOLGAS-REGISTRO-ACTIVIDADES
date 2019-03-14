@@ -37,7 +37,7 @@ public partial class Mantenimiento_Contactos_ContactosGrid : System.Web.UI.Page
                 String Email = dataJSON["Email"].ToString();
                 String Cargo = dataJSON["Cargo"].ToString();
                 String IdCliente = dataJSON["IdCliente"].ToString();
-                String IdZona = dataJSON["IdZona"].ToString();
+                String IdClienteInstalacion = dataJSON["IdClienteInstalacion"].ToString();
                 String chkFlgHabilitado = dataJSON["chkFlgHabilitado"].ToString();
                 
                 //PAG
@@ -51,7 +51,7 @@ public partial class Mantenimiento_Contactos_ContactosGrid : System.Web.UI.Page
                     Email = Email,
                     Cargo = Cargo,
                     IdCliente = int.Parse((IdCliente == "" ? "0" : IdCliente)),
-                    IdZona = int.Parse((IdZona == "" ? "0" : IdZona)),
+                    IdClienteInstalacion = int.Parse((IdClienteInstalacion == "" ? "0" : IdClienteInstalacion)),
                     page = int.Parse(pagina),
                     rows = int.Parse(filas),
                     Flag=chkFlgHabilitado

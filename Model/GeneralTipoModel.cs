@@ -27,7 +27,7 @@ namespace Model
             alParameters.Add(parameter);
             return Convert.ToInt32(SqlConnector.executeScalar("spS_ManInsGRGeneral", alParameters));
         }
-        public static void Update(GeneralTipoBean item)
+        public static Int32 Update(GeneralTipoBean item)
         {
             ArrayList alParameters = new ArrayList();
             SqlParameter parameter;
@@ -43,7 +43,7 @@ namespace Model
             parameter = new SqlParameter("@Nombre", SqlDbType.VarChar, 150);
             parameter.Value = item.Nombre;
             alParameters.Add(parameter);
-            SqlConnector.executeNonQuery("spS_ManUpdGRGeneral", alParameters);
+            return Convert.ToInt32(SqlConnector.executeNonQuery("spS_ManUpdGRGeneral", alParameters));
         }
         public static GeneralTipoBean Get(GeneralTipoBean item)
         {

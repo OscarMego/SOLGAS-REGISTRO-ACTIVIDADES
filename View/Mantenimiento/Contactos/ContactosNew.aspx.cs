@@ -44,11 +44,11 @@ public partial class Mantenimiento_Contactos_ContactosNew : System.Web.UI.Page
                     MtxtTelefono.Value = obj.Telefono;
                     MtxtEmail.Value = obj.Email;
                     MtxtCargo.Value = obj.Cargo;
-                    hddIdZona.Value = obj.IdZona.ToString();
+                    hddIdInstalacion.Value = obj.IdClienteInstalacion.ToString();
                     MtxtCliente.Value = obj.Cliente.ToString();
                     MhdiCodClie.Value = obj.IdCliente.ToString();
-                    MhdiCodClieIns.Value = obj.IdClienteInstalacion.ToString();
-                    MddlIdZona.SelectedValue = obj.IdZona.ToString();
+                    //MhdiCodClieIns.Value = obj.IdClienteInstalacion.ToString();
+                    MddlIdInstalacion.SelectedValue = obj.IdClienteInstalacion.ToString();
 
 
                 }
@@ -64,8 +64,10 @@ public partial class Mantenimiento_Contactos_ContactosNew : System.Web.UI.Page
     {
         try
         {
-            var lstComboBean = ZonaController.getClienteZonas(idCliente).Where(x => x.Flag != "F").ToList();
-            Utility.ComboNuevo(MddlIdZona, lstComboBean, "IdZona", "Nombre");
+            //var lstComboBean = ZonaController.getClienteZonas(idCliente).Where(x => x.Flag != "F").ToList();
+            var lstComboBean = ClienteController.getClienteInstalacion(idCliente).Where(x => x.Habilitado != "F").ToList();
+            //Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "IdZona", "Nombre");
+            Utility.ComboNuevo(MddlIdInstalacion, lstComboBean, "IDClienteInstalacion", "Descripcion");
         }
         catch (Exception ex)
         {

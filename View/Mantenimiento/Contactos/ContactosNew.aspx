@@ -26,7 +26,7 @@
                                 <asp:HiddenField ID="MtxtIdContacto" runat="server" />
                                 <asp:HiddenField ID="MhdiCodClie" runat="server" />
                                 <asp:HiddenField ID="MhdiCodClieIns" runat="server" />
-                                <asp:HiddenField ID="hddIdZona" runat="server" />
+                                <asp:HiddenField ID="hddIdInstalacion" runat="server" />
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtNombre">Nombres</label>
                                     <span style="color: #b94a48">*</span>
@@ -56,9 +56,9 @@
                                 </div>
 
                                 <div class="col-sm-6 form-group">
-                                    <label for="MddlIdZona">Zona</label>
+                                    <label for="MddlIdInstalacion">Instalación</label>
                                     <span style="color: #b94a48">*</span>
-                                    <asp:DropDownList ID="MddlIdZona" runat="server" class="requerid form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="requerid form-control"></asp:DropDownList>
                                 </div>
 
                             </div>
@@ -87,8 +87,8 @@
                 strData.Email = $('#MtxtEmail').val();
                 strData.Cargo = $('#MtxtCargo').val();
                 strData.IdCliente = $('#MhdiCodClie').val();
-                strData.IdClienteInstalacion = $('#MhdiCodClieIns').val();
-                strData.IdZona = $('#MddlIdZona').val();
+                strData.IdClienteInstalacion = $('#MddlIdInstalacion').val();
+                //strData.IdZona = $('#MddlIdInstalacion').val();
                 strData.accion = $('#MhAccion').val();
 
                 return strData;
@@ -100,8 +100,8 @@
                 $('#MtxtEmail').val('');
                 $('#MtxtCargo').val('');
                 $('#MhdiCodClie').val('');
-                $('#MhdiCodClieIns').val('');
-                $('#MddlIdZona').val('').trigger('change');
+                //$('#MhdiCodClieIns').val('');
+                $('#MddlIdInstalacion').val('').trigger('change');
                 $('#myModal').modal('hide');
             }
 
@@ -113,15 +113,15 @@
                     $('#MhdiCodClieIns').val(suggestion.data);
                     var vCodClieInst = $('#MhdiCodClieIns').val();
                     console.log(vCodClieInst);
-                    ObternerClienteId(vCodClieInst);
-                    cargaComboDSL(urlPrin + '/ComboZonas', '#MddlIdZona', 'SELECCIONE', {
-                        idCliente: suggestion.data, idZona: $('#hddIdZona').val()
+                    //ObternerClienteId(vCodClieInst);
+                    cargaComboDSL(urlPrin + '/ComboClienteInstalacion', '#MddlIdInstalacion', 'SELECCIONE', {
+                        idCliente: suggestion.data, idInstalacion: $('#hddIdInstalacion').val()
                     });
                 },
                 onSearchStart: function (params) {
                     $(this).attr("idval", "");
-                    cargaComboDSL(urlPrin + '/ComboZonas', '#MddlIdZona', 'SELECCIONE', {
-                        idCliente: '0', idZona: '0'
+                    cargaComboDSL(urlPrin + '/ComboClienteInstalacion', '#MddlIdInstalacion', 'SELECCIONE', {
+                        idCliente: '0', idInstalacion: '0'
                     });
                     //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
                 },

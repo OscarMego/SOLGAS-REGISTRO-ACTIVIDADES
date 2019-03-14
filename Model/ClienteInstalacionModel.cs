@@ -13,6 +13,30 @@ namespace Model
 {
     public class ClienteInstalacionModel
     {
+        public static List<ClienteInstalacionBean> getClienteInstalacion(String idCLiente)
+        {
+            List<ClienteInstalacionBean> lobj = new List<ClienteInstalacionBean>();
+            ArrayList alParameters = new ArrayList();
+            SqlParameter parameter = new SqlParameter();
+            parameter = new SqlParameter("@idCliente", SqlDbType.VarChar, 20);
+            parameter.Value = idCLiente;
+            alParameters.Add(parameter);
+            DataTable dt = SqlConnector.getDataTable("spS_ManSelClienteInstalacion", alParameters);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    ClienteInstalacionBean obj = new ClienteInstalacionBean
+                    {
+                        IDClienteInstalacion = row["IDClienteInstalacion"].ToString(),
+                        Descripcion = row["Descripcion"].ToString(),
+                        Habilitado = row["sel"].ToString(),
+                    };
+                    lobj.Add(obj);
+                }
+            }
+            return lobj;
+        }
         public static List<ClienteInstalacionBean> getAll(string idCliente)
         {
             List<ClienteInstalacionBean> lobj = new List<ClienteInstalacionBean>();

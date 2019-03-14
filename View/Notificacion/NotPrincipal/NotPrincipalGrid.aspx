@@ -142,7 +142,11 @@
                 //        $(this).prop("disabled", true);
                 //    });
                 //}, 2000);
-
+                var nFilas = $("#Table1 tr").length;
+                if (nFilas > 0)
+                    $('#myModal').modal('show');
+                else
+                    $('#myModal').modal('hide');
             });
         </script>
         <div id="calendarwindow" class="calendar-window">

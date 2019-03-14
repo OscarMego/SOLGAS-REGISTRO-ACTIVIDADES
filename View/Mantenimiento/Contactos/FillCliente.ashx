@@ -13,10 +13,11 @@ public class FillCliente : IHttpHandler, System.Web.SessionState.IRequiresSessio
 
     public void ProcessRequest(HttpContext context)
     {
-       String match = context.Request.Params["query"];
+        String match = context.Request.Params["query"];
         String output = "";
         List<Combo> result = new List<Combo>();
-        result = OportunidadController.GetClientes(match, null, null);
+        //result = OportunidadController.GetClientes(match, null, null);
+        result = OportunidadController.GetClientes(match);
         output = Newtonsoft.Json.JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented);
         context.Response.Write(output);
     }
