@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-sm-4 col-md-2 form-group">
                                 <label for="ddlZona">Zona</label>
-                                <asp:DropDownList ID="ddlZona" runat="server" class="form-control"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlIdInstalacion" runat="server" class="form-control"></asp:DropDownList>
                             </div>
                             <div class="col-sm-4 col-md-2 form-group">
                                 <div class="checkbox">
@@ -206,7 +206,7 @@
                 strData.Email = $('#txtEmail').val();
                 strData.Cargo = $('#txtCargo').val();
                 strData.IdCliente = $('#ddlCliente').val();
-                strData.IdZona = $('#ddlZona').val();
+                strData.IdClienteInstalacion = $('#ddlIdInstalacion').val();
                 strData.chkFlgHabilitado = $("#chkhabilitado").is(":checked") ? "T" : "F";
                
                 //PAG

@@ -40,8 +40,11 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
             var perfil = ClienteController.GetAll(new ClienteBean { FlgHabilitado = "T" });
             Utility.ComboBuscar(ddlCliente, perfil, "CLI_PK", "Razon_Social");
 
-            var zona = ZonaController.GetAll(new ZonaBean { Flag = "T" });
-            Utility.ComboBuscar(ddlZona, zona, "IdZona", "Nombre");
+            //var zona = ZonaController.GetAll(new ZonaBean { Flag = "T" });
+            //Utility.ComboBuscar(ddlZona, zona, "IdZona", "Nombre");
+
+            var lstComboBean = ClienteController.getClienteInstalacion("").Where(x => x.Habilitado != "F").ToList();
+            Utility.ComboNuevo(ddlIdInstalacion, lstComboBean, "IDClienteInstalacion", "Descripcion");
         }
         catch (Exception ex)
         {
@@ -51,7 +54,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
     }
     #region WebService
     [WebMethod]
-    public static String Insert(string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion, int IdZona)
+    public static String Insert(string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion)
     {
         try
         {
@@ -62,8 +65,8 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                 Email = Email,
                 Cargo = Cargo,
                 IdCliente = IdCliente,
-                IdClienteInstalacion = IdClienteInstalacion,
-                IdZona = IdZona
+                IdClienteInstalacion = IdClienteInstalacion
+                //IdZona = IdZona
             };
             ContactoController.Insert(item);
 
@@ -77,7 +80,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
     }
 
     [WebMethod]
-    public static String Update(int IdContacto, string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion, int IdZona)
+    public static String Update(int IdContacto, string Nombre, string Telefono, string Email, string Cargo, int IdCliente, int IdClienteInstalacion)
     {
         try
         {
@@ -89,8 +92,7 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                 Email = Email,
                 Cargo = Cargo,
                 IdCliente = IdCliente,
-                IdClienteInstalacion = IdClienteInstalacion,
-                IdZona = IdZona
+                IdClienteInstalacion = IdClienteInstalacion
             };
             ContactoController.Update(item);
             return "OK";
@@ -156,6 +158,31 @@ public partial class Mantenimiento_Contactos_Contactos : PageController
                     Text = x.Nombre.ToString(),
                     Value = x.IdZona.ToString(),
                     Selected = (idZona == "0" ? false : (idZona == x.IdZona.ToString() ? true : false)),
+                }).ToList();
+                return lstComboBean;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.LogException(ex, "Error :" + ex);
+                throw new Exception("ERROR: " + ex.Message);
+            }
+        }
+        return new List<ListItem>();
+    }
+
+    [WebMethod]
+    public static List<ListItem> ComboClienteInstalacion(string idCliente, string idInstalacion)
+    {
+
+        if (idCliente != String.Empty && !idCliente.Equals("0"))
+        {
+            try
+            {
+                List<ListItem> lstComboBean = ClienteController.getClienteInstalacion(idCliente).Where(x => x.Habilitado != "F").Select(x => new ListItem()
+                {
+                    Text = x.Descripcion.ToString(),
+                    Value = x.IDClienteInstalacion.ToString(),
+                    Selected = (idInstalacion == "0" ? false : (idInstalacion == x.IDClienteInstalacion.ToString() ? true : false)),
                 }).ToList();
                 return lstComboBean;
             }

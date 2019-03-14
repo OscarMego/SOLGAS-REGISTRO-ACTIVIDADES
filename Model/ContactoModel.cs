@@ -31,9 +31,9 @@ namespace Model
             parameter = new SqlParameter("@IdClienteInstalacion", SqlDbType.BigInt);
             parameter.Value = item.IdClienteInstalacion;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
-            alParameters.Add(parameter);
+            //parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
+            //parameter.Value = item.IdZona;
+            //alParameters.Add(parameter);
 
             int contacto = Convert.ToInt32(SqlConnector.executeScalar("spS_ManInsGRContacto", alParameters));
             item.IdContacto = contacto;
@@ -228,8 +228,8 @@ namespace Model
             parameter = new SqlParameter("@IdCliente", SqlDbType.BigInt);
             parameter.Value = item.IdCliente;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
+            parameter = new SqlParameter("@IdClienteInstalacion", SqlDbType.BigInt);
+            parameter.Value = item.IdClienteInstalacion;
             alParameters.Add(parameter);
             parameter = new SqlParameter("@Cargo", SqlDbType.VarChar, 80);
             parameter.Value = item.Cargo;
@@ -258,9 +258,9 @@ namespace Model
                         Email = row["Email"].ToString(),
                         Cargo = row["Cargo"].ToString(),
                         IdCliente = Int64.Parse(row["IdCliente"].ToString()),
-                        IdZona = Int64.Parse(row["IdZona"].ToString()),
+                        IdClienteInstalacion = Int64.Parse(row["IdClienteInstalacion"].ToString()),
                         Cliente = row["Cliente"].ToString(),
-                        Zona = row["Zona"].ToString(),
+                        ClienteInstalacion = row["ClienteInstalacion"].ToString(),
                         Flag = row["Flag"].ToString()
                     }
                     ;

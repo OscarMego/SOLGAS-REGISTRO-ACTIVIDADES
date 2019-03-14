@@ -150,7 +150,7 @@
                     success: function (data) {
                         $("#myModal").html(data);
 
-                        $('#myModal').modal('show');
+                        //$('#myModal').modal('show');
 
                     },
                     error: function (xhr, status, error) {

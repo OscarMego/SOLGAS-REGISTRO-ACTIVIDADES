@@ -18,6 +18,8 @@ namespace Model.bean
         public Int64 IdClienteInstalacion { get; set; }
         public String Zona { get; set; }
 
+        public String ClienteInstalacion { get; set; }
+
         public String Flag { get; set; }
         public int page { get; set; }
         public int rows { get; set; }

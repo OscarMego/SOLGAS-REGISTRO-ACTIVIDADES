@@ -66,13 +66,13 @@ public partial class Mantenimiento_Contactos_ContactosNew {
     protected global::System.Web.UI.WebControls.HiddenField MhdiCodClieIns;
     
     /// <summary>
-    /// Control hddIdZona.
+    /// Control hddIdInstalacion.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.HiddenField hddIdZona;
+    protected global::System.Web.UI.WebControls.HiddenField hddIdInstalacion;
     
     /// <summary>
     /// Control MtxtNombre.
@@ -120,13 +120,13 @@ public partial class Mantenimiento_Contactos_ContactosNew {
     protected global::System.Web.UI.HtmlControls.HtmlInputText MtxtCliente;
     
     /// <summary>
-    /// Control MddlIdZona.
+    /// Control MddlIdInstalacion.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList MddlIdZona;
+    protected global::System.Web.UI.WebControls.DropDownList MddlIdInstalacion;
     
     /// <summary>
     /// Control MhAccion.
