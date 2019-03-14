@@ -28,7 +28,7 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtRazonSocial">Razón Social</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtRazonSocial" runat="server"  class="requerid form-control" maxlength="50" />
+                                    <input type="text" id="MtxtRazonSocial" runat="server" class="requerid form-control" maxlength="50" />
                                 </div>
 
                                 <div class="col-sm-6 form-group">
@@ -40,12 +40,12 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtDireccion">Dirección</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtDireccion" runat="server"  class="requerid form-control" maxlength="200" />
+                                    <input type="text" id="MtxtDireccion" runat="server" class="requerid form-control" maxlength="200" />
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtReferencia">Referencia</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtReferencia" runat="server"  class="requerid form-control" maxlength="200" />
+                                    <input type="text" id="MtxtReferencia" runat="server" class="requerid form-control" maxlength="200" />
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label for="MddlIdNegocio">Negocio</label>
@@ -211,11 +211,12 @@
                 $('#hdid').val(data.d.Index);
                 $('#hdIdCliente').val(data.d.IDCliente);
                 $('#MddlIdUsuario').val(data.d.IDUsuario).change();
+                $('#MddlIdZona').val(data.d.IDZona).change();
                 $('#MtxtCodInstalacion').val(data.d.CodInstalacion);
                 $('#MtxtDescripcion').val(data.d.Descripcion);
                 $('#MtxtDireccionI').val(data.d.Direccion);
                 $('#MtxtReferenciaI').val(data.d.Referencia);
-               // $('#MtxtDireccion').val(data.d.Direccion);
+                // $('#MtxtDireccion').val(data.d.Direccion);
             }
             function getData() {//funcion encargada de enviar los parametros para la insercion o edicion
                 debugger
@@ -257,7 +258,9 @@
                 var IdCliente = $('#hdIdCliente').val();
                 var MtxtCodInstalacion = $('#MtxtCodInstalacion').val();
                 var MddlIdUsuario = $('#MddlIdUsuario').val();
+                var idZona = $('#MddlIdZona').val();
                 var MddlNombreUsuario = $('#MddlIdUsuario  option:selected').text();
+                var MddlNombreZona = $('#MddlIdZona  option:selected').text();
                 var MtxtDescripcion = $('#MtxtDescripcion').val();
                 var MtxtDireccionI = $('#MtxtDireccionI').val();
                 var MtxtReferenciaI = $('#MtxtReferenciaI').val();
@@ -280,7 +283,9 @@
                 if (chkHabilitadoI == '') {
                     validateItems = false;
                 }
-
+                if (idZona == '') {
+                    validateItems = false
+                }
                 var input = {
                     index: index,
                     IdCliente: IdCliente,
@@ -290,6 +295,8 @@
                     Referencia: MtxtReferenciaI,
                     Habilitado: chkHabilitadoI,
                     IdUsuario: MddlIdUsuario,
+                    idZona: idZona,
+                    nombreZona: MddlNombreZona,
                     nombreUsuario: MddlNombreUsuario
                 }
                 if (validateItems) {
@@ -325,6 +332,7 @@
                 $('#hdid').val('');
                 $('#MtxtCodInstalacion').val('');
                 $('#MddlIdUsuario').val('').trigger('change');
+                $('#MddlIdZona').val('').trigger('change');
                 $('#MtxtDescripcion').val('');
                 $('#MtxtDireccionI').val('');
                 $('#MtxtReferenciaI').val('');
