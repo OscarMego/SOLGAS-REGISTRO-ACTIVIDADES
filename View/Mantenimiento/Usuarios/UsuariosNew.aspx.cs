@@ -44,7 +44,6 @@ public partial class Mantenimiento_Usuarios_UsuariosNew : System.Web.UI.Page
                     MtxtClave.Value = obj.clave;
                     hidClave.Value = obj.clave;
                     MddlIdPerfil.SelectedValue = obj.IdPerfil.ToString();
-                    MddlIdZona.SelectedValue = obj.IdZona.ToString();
                     MddlIdCanal.SelectedValue = obj.IdCanal.ToString();
                     if (obj.FlgActiveDirectory.Equals("T"))
                     {
@@ -71,9 +70,7 @@ public partial class Mantenimiento_Usuarios_UsuariosNew : System.Web.UI.Page
         {
             var perfil = PerfilController.GetAll(new PerfilBean { FlgHabilitado = "T" });
             Utility.ComboNuevo(MddlIdPerfil, perfil, "IdPerfil", "Descripcion");
-
-            var zona = ZonaController.GetAll(new ZonaBean { Flag = "T" });
-            Utility.ComboNuevo(MddlIdZona, zona, "IdZona", "Nombre");
+            
             var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" });
             Utility.ComboNuevo(MddlIdCanal, canal, "IdNegocio", "Nombre");
         }

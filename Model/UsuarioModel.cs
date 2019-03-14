@@ -40,9 +40,6 @@ namespace Model
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
             parameter.Value = item.IdCanal;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
-            alParameters.Add(parameter);
             parameter = new SqlParameter("@VerificaAD", SqlDbType.VarChar, 100);
             parameter.Value = item.FlgActiveDirectory;
             alParameters.Add(parameter);
@@ -77,11 +74,7 @@ namespace Model
             parameter = new SqlParameter("@IdPerfil", SqlDbType.BigInt);
             parameter.Value = item.IdPerfil;
             alParameters.Add(parameter);
-
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
-            alParameters.Add(parameter);
-
+            
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
             parameter.Value = item.IdCanal;
             alParameters.Add(parameter);
@@ -121,7 +114,6 @@ namespace Model
                         Email = row["Email"].ToString(),
                         IdPerfil = int.Parse(row["IdPerfil"].ToString()),
                         IdCanal = int.Parse(row["IdCanal"].ToString()),
-                        IdZona = int.Parse(row["IdZona"].ToString()),
                         FlgActiveDirectory = row["FlagAutenticacionAD"].ToString()
 
                     };
@@ -171,9 +163,6 @@ namespace Model
             parameter = new SqlParameter("@IdPerfil", SqlDbType.BigInt);
             parameter.Value = item.IdPerfil;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
-            alParameters.Add(parameter);
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
             parameter.Value = item.IdCanal;
             alParameters.Add(parameter);
@@ -192,7 +181,6 @@ namespace Model
                         clave = row["clave"].ToString(),
                         IdPerfil = int.Parse(row["IdPerfil"].ToString()),
                         IdCanal = int.Parse(row["IdCanal"].ToString()),
-                        IdZona = int.Parse(row["IdZona"].ToString())
                     };
                     lobj.Add(obj);
                 }
@@ -267,9 +255,6 @@ namespace Model
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
             parameter.Value = item.IdCanal;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@IdZona", SqlDbType.BigInt);
-            parameter.Value = item.IdZona;
-            alParameters.Add(parameter);
             parameter = new SqlParameter("@IdPerfil", SqlDbType.BigInt);
             parameter.Value = item.IdPerfil;
             alParameters.Add(parameter);
@@ -289,7 +274,6 @@ namespace Model
                     UsuarioBean obj = new UsuarioBean
                     {
                         item = int.Parse(row["item"].ToString()),
-                        NombreZona = row["NombreZona"].ToString(),
                         IdUsuario = int.Parse(row["IdUsuario"].ToString()),
                         Codigo = row["Codigo"].ToString(),
                         Nombres = row["Nombres"].ToString(),
@@ -297,7 +281,6 @@ namespace Model
                         FlgHabilitado = row["FlgHabilitado"].ToString(),
                         clave = row["clave"].ToString(),
                         Email = row["Email"].ToString(),
-                        IdZona = int.Parse(row["IdZona"].ToString()),
                         NombreCanal = row["NombreCanal"].ToString(),
                         IdCanal = int.Parse(row["IdCanal"].ToString()),
                         NombrePerfil = row["NombrePerfil"].ToString(),

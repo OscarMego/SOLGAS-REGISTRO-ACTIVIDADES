@@ -9,7 +9,7 @@ namespace Model.bean
         public UsuarioBean()
         {
             IdUsuario = 0; Codigo = "";
-            Nombres = ""; Apellidos = ""; LoginUsuario = ""; Email = ""; FlgHabilitado = ""; clave = ""; IdPerfil = 0; IdZona = 0; IdCanal = 0;
+            Nombres = ""; Apellidos = ""; LoginUsuario = ""; Email = ""; FlgHabilitado = ""; clave = ""; IdPerfil = 0; IdCanal = 0;
             AllIdPerfil = ""; FlgActiveDirectory = "";
         }
         public int item { get; set; }
@@ -23,8 +23,7 @@ namespace Model.bean
         public string FlgHabilitado { get; set; }
         public string clave { get; set; }
         public int IdPerfil { get; set; }
-        public int IdCanal { get; set; }
-        public int IdZona { get; set; }
+        public int IdCanal { get; set; }      
         public String AllIdPerfil { get; set; }
         public string EditPass { get; set; }
         public string Coordinadores { get; set; }
@@ -47,7 +46,6 @@ namespace Model.bean
         public Dictionary<String, RolBean> hashRol { get; set; }
         public string NombrePerfil { get; set; }
         public string NombreCanal { get; set; }
-        public string NombreZona { get; set; }
 
     }
 }

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.Services;
 using System.Web.UI;
@@ -47,7 +46,7 @@ public partial class Mantenimiento_Usuarios_Usuarios : PageController
     }
     #region WebService
     [WebMethod]
-    public static String Insert(string Codigo, string Nombres, string LoginUsuario, string Email, string clave, int IdPerfil, int IdCanal, int IdZona, String Vendedores, String Modificable)
+    public static String Insert(string Codigo, string Nombres, string LoginUsuario, string Email, string clave, int IdPerfil, int IdCanal, String Vendedores, String Modificable)
     {
         try
         {
@@ -61,7 +60,6 @@ public partial class Mantenimiento_Usuarios_Usuarios : PageController
                 clave = FormsAuthentication.HashPasswordForStoringInConfigFile(clave, "sha1"),
                 IdPerfil = IdPerfil,
                 IdCanal = IdCanal,
-                IdZona = IdZona,
                 FlgActiveDirectory = Modificable
             };
             UsuarioController.Insert(item);
@@ -76,7 +74,7 @@ public partial class Mantenimiento_Usuarios_Usuarios : PageController
     }
 
     [WebMethod]
-    public static String Update(string IdUsuario, string Codigo, string Nombres, string LoginUsuario, string Email, string clave, int IdPerfil, int IdCanal, int IdZona, String Vendedores, String CamClave, String Modificable)
+    public static String Update(string IdUsuario, string Codigo, string Nombres, string LoginUsuario, string Email, string clave, int IdPerfil, int IdCanal, String Vendedores, String CamClave, String Modificable)
     {
         try
         {
@@ -92,9 +90,7 @@ public partial class Mantenimiento_Usuarios_Usuarios : PageController
                 IdPerfil = IdPerfil,
                 EditPass = CamClave,
                 FlgActiveDirectory = Modificable,
-                IdCanal=IdCanal,
-                IdZona=IdZona
-                
+                IdCanal=IdCanal,                
             };
             UsuarioController.Update(item);
             return "OK";

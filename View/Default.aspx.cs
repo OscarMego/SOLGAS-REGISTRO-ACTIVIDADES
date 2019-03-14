@@ -166,42 +166,26 @@ public partial class _Default : System.Web.UI.Page
                             else
                             {
                                 txtmsg.Value = "Usuario o contraseña incorrecta";
-
                                 //Exception ex=  new Exception("Usuario o contraseña incorrecto");
-
                                 //HttpContext.Current.Response.Write(ExceptionUtils.getHtmlErrorPage(ex));
                                 // HttpContext.Current.Response.End();
-
                             }
-
                         }
-
                         catch (Exception ex)
                         {
                             txtmsg.Value = "El Servicio Web de Active Directory no está disponible";
 
                         }
-                 
-
-                 
-
                     }
-
                     else
                     {
                         //bean = UsuarioController.validarUsuario(login, pwcrypt, "T");
-
                         try
                         {
                             bean = new UsuarioBean();
-
                             bean = UsuarioController.validarUsuario(login, pwcrypt, "T");
-
-
                             if (!bean.Codigo.Equals("0"))
                             {
-
-
                                 Session["lgn_id"] = bean.IdUsuario;
                                 Session["lgn_codigo"] = bean.Codigo;
                                 Session["lgn_login"] = bean.LoginUsuario;
@@ -210,37 +194,21 @@ public partial class _Default : System.Web.UI.Page
                                 Session["lgn_perfilmenu"] = bean.hashRol;
                                 Session["lgn_email"] = bean.Email;
                                 Session["lgn_idcanal"] = bean.IdCanal;
-                                Session["lgn_idzona"] = bean.IdZona;
                                 Response.Redirect("Main.aspx");
                                 //GeneralController.subInicializarConfiguracion();
                                 //subInicializarMenu();
-
-
                             }
-
                             else
                             {
-
-
                                 txtmsg.Value = "Usuario o contraseña incorrecta";
-
                             }
-
-                        
-                        
                         
                         }
                         catch (Exception ex)
                         {
                             this.txtmsg.Value = ex.Message;
                         }
-
-
-        
-
                     }
-
-        
                 }
                 else
                 {
@@ -255,7 +223,6 @@ public partial class _Default : System.Web.UI.Page
         catch (Exception ex)
         {
             this.txtmsg.Value = "Ocurrió un error: " +  ex.Message;
-
             //HttpContext.Current.Response.Write(ExceptionUtils.getHtmlErrorPage(ex));
             //HttpContext.Current.Response.End();
         }

@@ -47,14 +47,9 @@
                                     <label for="MddlIdPerfil">Perfil</label>
                                     <span style="color: #b94a48">*</span>
                                     <asp:DropDownList ID="MddlIdPerfil" runat="server" class="requerid form-control"></asp:DropDownList>
-                                </div>
+                                </div>                                
                                 <div class="col-sm-6 form-group">
-                                    <label for="MddlIdPerfil">Zona</label>
-                                    <span style="color: #b94a48">*</span>
-                                    <asp:DropDownList ID="MddlIdZona" runat="server" class="requerid form-control"></asp:DropDownList>
-                                </div>
-                                <div class="col-sm-6 form-group">
-                                    <label for="MddlIdPerfil">Canal</label>
+                                    <label for="MddlIdPerfil">Negocio</label>
                                     <span style="color: #b94a48">*</span>
                                     <asp:DropDownList ID="MddlIdCanal" runat="server" class="requerid form-control"></asp:DropDownList>
                                 </div>
@@ -140,7 +135,6 @@
                 strData.clave = $('#MtxtClave').val();
                 strData.CamClave = (camClave == 1 ? 'T' : 'F');
                 strData.IdPerfil = $('#MddlIdPerfil').val();
-                strData.IdZona = $('#MddlIdZona').val();
                 strData.IdCanal = $('#MddlIdCanal').val();
                 strData.Vendedores = ValorComboMultSinAll('#MddlVendedor');
                 strData.Modificable = ($('#chkmodificable').is(':checked') ? 'T' : 'F');
@@ -156,7 +150,6 @@
                 $('#MtxtEmail').val('');
                 $('#MtxtClave').val('');
                 $('#MddlIdPerfil').val('').trigger('change');
-                $('#MddlIdZona').val('').trigger('change');
                 $('#MddlIdCanal').val('').trigger('change');
                 $('#myModal').modal('hide');
             }

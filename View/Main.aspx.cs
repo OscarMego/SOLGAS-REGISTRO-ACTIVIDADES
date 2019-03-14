@@ -73,7 +73,6 @@ public partial class Main : PageController
             Session["lgn_perfilmenu"] = bean.hashRol;
             Session["lgn_email"] = bean.Email;
             Session["lgn_idcanal"] = bean.IdCanal;
-            Session["lgn_idzona"] = bean.IdZona;
             GeneralController.subInicializarConfiguracion();
             //subInicializarMenu();
             return true;

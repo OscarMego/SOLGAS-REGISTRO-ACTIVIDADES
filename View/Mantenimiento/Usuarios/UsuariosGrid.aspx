@@ -64,7 +64,6 @@
                     <asp:BoundField DataField="LoginUsuario" HeaderText="Login" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Nombres" HeaderText="Nombres" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="NombrePerfil" HeaderText="Perfil" ItemStyle-HorizontalAlign="Center" />
-                     <asp:BoundField DataField="NombreZona" HeaderText="Zona" ItemStyle-HorizontalAlign="Center" />
                      <asp:BoundField DataField="NombreCanal" HeaderText="Canal" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Email" HeaderText="Correo Electrónico" ItemStyle-HorizontalAlign="Center" />
 

@@ -79,11 +79,6 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MddlIdTipo">Tipo</label>
                                     <span style="color: #b94a48">*</span>
-                                    <%--<select class="requerid form-control">
-                                        <option value="-1">Seleccione...</option>
-                                        <option value="1">Cliente Solgas</option>
-                                        <option value="2">Cliente Potencial</option>
-                                    </select>--%>
                                     <asp:DropDownList ID="MddlIdTipo" runat="server" class="requerid form-control">
                                         <asp:ListItem Value="0" Selected="True">Seleccione...</asp:ListItem>
                                         <asp:ListItem Value="1">Cliente Solgas</asp:ListItem>
@@ -215,7 +210,6 @@
             function EditarSucces(data) {
                 $('#hdid').val(data.d.Index);
                 $('#hdIdCliente').val(data.d.IDCliente);
-                $('#MddlIdZona').val(data.d.IDZona).change();
                 $('#MddlIdUsuario').val(data.d.IDUsuario).change();
                 $('#MtxtCodInstalacion').val(data.d.CodInstalacion);
                 $('#MtxtDescripcion').val(data.d.Descripcion);
@@ -262,8 +256,6 @@
                 var index = $('#hdid').val();
                 var IdCliente = $('#hdIdCliente').val();
                 var MtxtCodInstalacion = $('#MtxtCodInstalacion').val();
-                var MddlIdZona = $('#MddlIdZona').val();
-                var MddlNombreZona = $('#MddlIdZona  option:selected').text();
                 var MddlIdUsuario = $('#MddlIdUsuario').val();
                 var MddlNombreUsuario = $('#MddlIdUsuario  option:selected').text();
                 var MtxtDescripcion = $('#MtxtDescripcion').val();
@@ -274,9 +266,6 @@
                 var validateItems = true;
 
                 if (MtxtCodInstalacion == '') {
-                    validateItems = false;
-                }
-                if (MddlIdZona == '') {
                     validateItems = false;
                 }
                 if (MtxtDescripcion == '') {
@@ -296,8 +285,6 @@
                     index: index,
                     IdCliente: IdCliente,
                     codInstalacion: MtxtCodInstalacion,
-                    idZona: MddlIdZona,
-                    nombreZona: MddlNombreZona,
                     Descripcion: MtxtDescripcion,
                     Direccion: MtxtDireccionI,
                     Referencia: MtxtReferenciaI,
@@ -337,8 +324,7 @@
             function clearCamposCtr() {//funcion encargada de limpiar los input
                 $('#hdid').val('');
                 $('#MtxtCodInstalacion').val('');
-                $('#MddlIdUsuario').val('').trigger('change');;
-                $('#MddlIdZona').val('').trigger('change');
+                $('#MddlIdUsuario').val('').trigger('change');
                 $('#MtxtDescripcion').val('');
                 $('#MtxtDireccionI').val('');
                 $('#MtxtReferenciaI').val('');

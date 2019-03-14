@@ -25,9 +25,7 @@ namespace Controller
                 loBeanUsuario.IdUsuario = int.Parse(row["id"].ToString());
                 loBeanUsuario.Codigo = row["Codigo"].ToString();
                 loBeanUsuario.Nombres = row["Nombre"].ToString();
-                loBeanUsuario.IdZona= int.Parse(row["IdZona"].ToString()); 
                 loBeanUsuario.IdCanal = int.Parse(row["IdCanal"].ToString());
-                loBeanUsuario.NombreZona = row["Zona"].ToString();
                 loBeanUsuario.NombreCanal = row["canal"].ToString();
                 loBeanUsuario.IdPerfil = int.Parse(row["IdPerfil"].ToString());
                 loBeanUsuario.NombrePerfil = row["perfil"].ToString();
