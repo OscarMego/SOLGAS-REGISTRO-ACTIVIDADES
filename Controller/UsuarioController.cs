@@ -66,6 +66,10 @@ namespace Controller
         {
             return UsuarioModel.GetAll(item);
         }
+        public static List<UsuarioBean> GetAllPorTipo(UsuarioBean item)
+        {
+            return UsuarioModel.GetAllPorTipo(item);
+        }
         public static List<UsuarioBean> GetOportunidadUsuarioAll(UsuarioBean item)
         {
             return UsuarioModel.GetOportunidadUsuarioAll(item);

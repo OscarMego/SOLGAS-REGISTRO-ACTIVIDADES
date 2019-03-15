@@ -188,6 +188,39 @@ namespace Model
             return lobj;
         }
 
+        public static List<UsuarioBean> GetAllPorTipo(UsuarioBean item)
+        {
+            List<UsuarioBean> lobj = new List<UsuarioBean>();
+            ArrayList alParameters = new ArrayList();
+            SqlParameter parameter;
+            parameter = new SqlParameter("@Codigo", SqlDbType.VarChar, 10);
+            parameter.Value = item.Codigo;
+            alParameters.Add(parameter);
+            parameter = new SqlParameter("@FlgHabilitado", SqlDbType.VarChar, 10);
+            parameter.Value = item.FlgHabilitado;
+            alParameters.Add(parameter);
+            DataTable dt = SqlConnector.getDataTable("spS_ManSelGRUsuarioCombo", alParameters);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    UsuarioBean obj = new UsuarioBean
+                    {
+                        IdUsuario = int.Parse(row["IdUsuario"].ToString()),
+                        Codigo = row["Codigo"].ToString(),
+                        Nombres = row["Nombres"].ToString(),
+                        LoginUsuario = row["LoginUsuario"].ToString(),
+                        FlgHabilitado = row["FlgHabilitado"].ToString(),
+                        clave = row["clave"].ToString(),
+                        IdPerfil = int.Parse(row["IdPerfil"].ToString()),
+                        IdCanal = int.Parse(row["IdCanal"].ToString()),
+                    };
+                    lobj.Add(obj);
+                }
+            }
+            return lobj;
+        }
+
         public static List<UsuarioBean> GetOportunidadUsuarioAll(UsuarioBean item)
         {
             List<UsuarioBean> lobj = new List<UsuarioBean>();

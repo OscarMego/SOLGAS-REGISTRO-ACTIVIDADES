@@ -345,7 +345,7 @@ public partial class Reporte_Actividad_Resumido : PageController
         {
             var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
                         
-            List<ListItem> lstComboBean = UsuarioController.GetAll(new UsuarioBean { FlgHabilitado = "T" }).
+            List<ListItem> lstComboBean = UsuarioController.GetAllPorTipo(new UsuarioBean { Codigo = codigo, FlgHabilitado = "T" }).
                 Select(x => new ListItem()
                 {
                     Text = x.LoginUsuario,
