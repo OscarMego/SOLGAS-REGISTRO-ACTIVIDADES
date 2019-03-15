@@ -137,7 +137,7 @@
                             </div>
                             
                             <div class="col-sm-4 col-md-2 form-group">
-                                <label for="ddlVisibilidad">Visivilidad</label>
+                                <label for="ddlVisibilidad">Visibilidad</label>
                                 <select name="ddlVisibilidad" id="ddlVisibilidad" class="form-control">
 	                                <option value="RESUMIDO" selected="selected">Resumida</option>
 	                                <option value="DETALLADO">Detallada</option>

@@ -138,11 +138,10 @@ namespace Controller
             return mensaje;
         }
 
-        public static List<ClienteInstalacionBean> getAllInstalacion(string idCliente)
+        public static List<ClienteInstalacionBean> getAllInstalacion(string idCliente,String idusuario)
         {
             List<ClienteInstalacionBean> lobj = new List<ClienteInstalacionBean>();
-
-            lobj = ClienteInstalacionModel.getAll(idCliente);
+            lobj = ClienteInstalacionModel.getAll(idCliente, idusuario);
             
             return lobj;
         }

@@ -254,7 +254,15 @@ public partial class Reporte_ExportarOportunidad : System.Web.UI.Page
         try
         {
             dt.Columns.Remove("Retrazo");
-            dt.Columns.Remove("IdOportunidad");
+            dt.Columns.Remove("IdEtapaActual");
+            dt.Columns.Remove("idResponsable");
+
+        }
+        catch (Exception)
+        {
+        }
+        try
+        {
             dt.Columns.Remove("IdOportunidad1");
             dt.Columns.Remove("IdEtapa");
 

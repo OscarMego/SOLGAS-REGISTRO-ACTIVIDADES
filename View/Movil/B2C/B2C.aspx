@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                             <a id="InstalacionAdd" data-toggle="modal" onclick="obtenerInstalacion()" style="cursor: pointer">
-                                                <img src="../../images/add-button.png" alt="" /></a>
+                                                <img src="../../images/lupa.png" alt="" /></a>
                                         </div>
                                     </div>
                                 </div>

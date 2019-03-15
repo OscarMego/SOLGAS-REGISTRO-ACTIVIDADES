@@ -670,6 +670,7 @@
     <Content Include="images\logo\registro.png" />
     <Content Include="images\logo\upic.png" />
     <Content Include="images\logo\vin.jpg" />
+    <Content Include="images\lupa.png" />
     <Content Include="images\man-user.png" />
     <Content Include="images\menu\imgMenu.gif" />
     <Content Include="images\panel-bg.png" />

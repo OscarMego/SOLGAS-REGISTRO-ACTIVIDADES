@@ -188,6 +188,7 @@ function clearCampos() {//funcion encargada de limpiar los input
     $('#txtCargo').val('');
     $('#txtObservaciones').val('');
     $('#dvCambiarEtapa').hide();
+    $('#txtCodInstalacion').val('');
     //window.location.reload(true);
 }
 function getCodClie() {

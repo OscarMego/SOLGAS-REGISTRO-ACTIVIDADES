@@ -39,7 +39,7 @@ namespace View.Mantenimiento.Cliente
                         ClienteBean obj = ClienteController.Get(new ClienteBean { CLI_PK = int.Parse(dataJSON["codigo"].ToString()) });
                         myModalLabel.InnerText = "Editar " + Model.bean.IdiomaCultura.getMensaje(Model.bean.IdiomaCultura.WEB_CLIENTE);
                         List<ClienteInstalacionBean> nopaginate = new List<ClienteInstalacionBean>();
-                        nopaginate = ClienteController.getAllInstalacion(Codigo);
+                        nopaginate = ClienteController.getAllInstalacion(Codigo,"-1");
                         if (obj != null)
                         {
                             hdIdCliente.Value = (obj.CLI_PK).ToString();

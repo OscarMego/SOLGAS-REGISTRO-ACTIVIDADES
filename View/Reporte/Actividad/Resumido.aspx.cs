@@ -37,7 +37,7 @@ public partial class Reporte_Actividad_Resumido : PageController
             }
         }
     }
-    
+
     private void CargaCombos()
     {
         try
@@ -58,7 +58,7 @@ public partial class Reporte_Actividad_Resumido : PageController
         try
         {
             var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
-                        
+
             List<Combo> lstCampos = new List<Combo>();
 
             lstCampos.Add(new Combo { Codigo = "[Fecha]", Nombre = "Fecha" });
@@ -272,11 +272,11 @@ public partial class Reporte_Actividad_Resumido : PageController
 
             List<ListItem> lstComboBean = ZonaController.GetAll(new ZonaBean { Flag = "T" }).
                 Select(x => new ListItem()
-            {
-                Text = x.Nombre,
-                Value = x.IdZona.ToString(),
-                Selected = true,
-            }).ToList();
+                {
+                    Text = x.Nombre,
+                    Value = x.IdZona.ToString(),
+                    Selected = true,
+                }).ToList();
 
             return lstComboBean;
 
@@ -344,11 +344,11 @@ public partial class Reporte_Actividad_Resumido : PageController
         try
         {
             var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
-                        
+
             List<ListItem> lstComboBean = UsuarioController.GetAllPorTipo(new UsuarioBean { Codigo = codigo, FlgHabilitado = "T" }).
                 Select(x => new ListItem()
                 {
-                    Text = x.LoginUsuario,
+                    Text = x.LoginUsuario + " - " + x.Nombres,
                     Value = x.IdUsuario.ToString(),
                     Selected = true,
                 }).ToList();
@@ -451,7 +451,7 @@ public partial class Reporte_Actividad_Resumido : PageController
         try
         {
             var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
-            
+
             List<ListItem> lstComboBean = OportunidadController.GetFotoActividad(idFoto).
                 Select(x => new ListItem()
                 {

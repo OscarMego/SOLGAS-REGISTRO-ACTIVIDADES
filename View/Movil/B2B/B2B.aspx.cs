@@ -418,7 +418,8 @@ namespace View.Movil.B2B
         {
             try
             {
-                List<ClienteInstalacionBean> item = ClienteController.getAllInstalacion(CodCliente);
+                var usuSession = HttpContext.Current.Session["lgn_id"].ToString();
+                List<ClienteInstalacionBean> item = ClienteController.getAllInstalacion(CodCliente, usuSession);
                 return item;
             }
             catch (Exception ex)

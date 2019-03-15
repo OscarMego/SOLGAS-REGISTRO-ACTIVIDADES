@@ -745,7 +745,14 @@ namespace Model
             parameter.Value = oDataTableLstCrtDin;
             alParameters.Add(parameter);
             parameter = new SqlParameter("@IdContacto", SqlDbType.BigInt);
-            parameter.Value = item.idContacto;
+            if (String.IsNullOrEmpty(item.idContacto))
+            {
+                parameter.Value = DBNull.Value;
+            }
+            else
+            {
+                parameter.Value = item.idContacto;
+            }
             alParameters.Add(parameter);
             parameter = new SqlParameter("@observaciones", SqlDbType.VarChar, -1);
             parameter.Value = item.observaciones;
@@ -759,7 +766,7 @@ namespace Model
             parameter = new SqlParameter("@longitud", SqlDbType.Float);
             parameter.Value = item.longitud;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("@codInstalacion", SqlDbType.VarChar,100);
+            parameter = new SqlParameter("@codInstalacion", SqlDbType.VarChar, 100);
             parameter.Value = codInstalacion;
             alParameters.Add(parameter);
             return Convert.ToInt32(SqlConnector.executeScalar("spS_ManInsGRActividad", alParameters));

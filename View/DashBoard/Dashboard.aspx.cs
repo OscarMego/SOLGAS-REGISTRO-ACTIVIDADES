@@ -44,7 +44,7 @@ namespace View.DashBoard
                 var codigo = HttpContext.Current.Session["lgn_id"].ToString();
 
                 //For admin get all
-                List<TipoActividadBean> lstData = TipoActividadController.GetReporteDashboard("").
+                List<TipoActividadBean> lstData = TipoActividadController.GetReporteDashboard(codigo).
                     Select(x => new TipoActividadBean()
                     {
                         codigo = x.codigo,

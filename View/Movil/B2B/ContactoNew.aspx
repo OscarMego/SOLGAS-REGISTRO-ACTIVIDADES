@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label for="MddlIdInstalacion">Instalación</label>
                             <span style="color: #b94a48">*</span>
-                            <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="requerid form-control"></asp:DropDownList>
+                            <asp:DropDownList ID="MddlIdInstalacion" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                     </div>
                 </div>
