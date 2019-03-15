@@ -101,8 +101,8 @@
                             </div>
 
                             <div class="col-sm-4 col-md-2 form-group" runat="server">
-                                <label for="ddlCanal">Canal</label>
-                                <select id="ddlCanal" multiple="multiple" class="form-control">
+                                <label for="ddlNegocio">Negocio</label>
+                                <select id="ddlNegocio" multiple="multiple" class="form-control">
                                 </select>
                             </div>
 
@@ -213,7 +213,7 @@
             var inicia = 1;
             var dataFoto;
             $(document).ready(function () {
-                cargaComboMulti(urlPrin + '/ComboMultCanal', "#ddlCanal");
+                cargaComboMulti(urlPrin + '/ComboMultCanal', "#ddlNegocio");
                 cargaComboMulti(urlPrin + '/ComboMultZona', "#ddlZona");
                 cargaComboMulti(urlPrin + '/ComboMultTipoActividad', "#ddlTipoActividad");
                 cargaComboMulti(urlPrin + '/ComboMultDetalleActividad', "#ddlDetalleActividad");
@@ -268,7 +268,7 @@
                 strData.FechaInicio = $('#txtFechaInicio').val();
                 strData.FechaFin = $('#txtFechaFin').val();
                 
-                strData.Canal = ValorComboMultSinAll('#ddlCanal');
+                strData.Canal = ValorComboMultSinAll('#ddlNegocio');
                 strData.Zona = ValorComboMultSinAll('#ddlZona');
                 strData.TipoActividad = ValorComboMultSinAll('#ddlTipoActividad');
                 strData.DetalleActividad = ValorComboMultSinAll('#ddlDetalleActividad');
