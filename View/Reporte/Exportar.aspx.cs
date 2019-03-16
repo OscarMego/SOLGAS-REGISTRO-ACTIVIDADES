@@ -86,7 +86,7 @@ public partial class Reporte_Exportar : System.Web.UI.Page
 
             };
             
-            DataTable dt = OportunidadController.GetReporteAllPaginateOportunidadesExcel(item);
+            DataTable dt = OportunidadController.GetReporteAllPaginateExcel(item);
 
             ExcelFileSpreadsheet exportExcel = this.prepararExportacionExcelReporteOportunidades(dt);
             ExcelFileUtils.ExportToExcel(exportExcel, "ReporteActividad");
