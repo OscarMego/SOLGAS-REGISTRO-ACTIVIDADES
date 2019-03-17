@@ -49,7 +49,7 @@ namespace View.Movil.B2C
             {
                 try
                 {
-                    List<ListItem> lstComboBean = SubTipoActividadController.GetAllByType(idTipo).Select(x => new ListItem()
+                    List<ListItem> lstComboBean = SubTipoActividadController.GetAllByType(idTipo, HttpContext.Current.Session["lgn_id"].ToString()).Select(x => new ListItem()
                     {
                         Text = x.Descripcion.ToString(),
                         Value = x.IDSubTipoActividad.ToString(),

@@ -17,13 +17,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div id="myModalContent" class="modal-body">
+                <div id="myModalContent" class="modal-body" style="height: 400px">
                     <div class="container-modal">
                         <span id="label2" runat="server"></span>
                         <br />
-                        <div id="Div1" class="tb-pc-modal" runat="server">
-                        <asp:GridView ID="grilla" runat="server" Width="100%" CssClass="grilla table" OnRowDataBound="GridView1_RowDataBound" />
-                            </div>
+                        <div id="Div1" style="height: 350px" class="tb-pc-modal" runat="server">
+                            <asp:GridView ID="grilla" runat="server" Width="100%" CssClass="grilla table"  />
+                        </div>
                         <div class="alert fade" id="divError">
                             <strong id="tituloMensajeError"></strong>
                             <p id="mensajeError">
@@ -40,19 +40,4 @@
         </div>
     </form>
 </body>
-<script>
-    $(document).ready(function () {
-
-        if ($('#numerReg').val() >= 8) {
-
-            $('#myModalContent').css("height", 500);
-            $('#myModal').css("height", 600);
-        } else {
-            $('#myModalContent').css("height", "auto");
-            $('#myModal').css("height", "auto");
-        }
-
-
-    });
-</script>
 </html>

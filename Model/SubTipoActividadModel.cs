@@ -148,13 +148,16 @@ namespace Model
 
         }
 
-        public static DataTable GetAllByType(String Codigo)
+        public static DataTable GetAllByType(String Codigo, String idusuario)
         {
             List<SubTipoActividadBean> lobj = new List<SubTipoActividadBean>();
             ArrayList alParameters = new ArrayList();
             SqlParameter parameter;
             parameter = new SqlParameter("@Codigo", SqlDbType.BigInt);
             parameter.Value = Codigo;
+            alParameters.Add(parameter);
+            parameter = new SqlParameter("@idusuario", SqlDbType.BigInt);
+            parameter.Value = idusuario;
             alParameters.Add(parameter);
             return SqlConnector.getDataTable("spS_ManSelGRSubTipoActividadByType", alParameters);
 

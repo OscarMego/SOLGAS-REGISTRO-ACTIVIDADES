@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-12 col-md-8 titulo">
                             <h2><i class="far fa-clipboard"></i>
-                                <%=Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.MAN_WEB_OPORTUNIDADES_ETAPA) %></h2>
+                               DashBoard Oportunidades por Etapa
                         </div>
                         <div class="col-6 col-md-4">
                             <div id="head-agr">

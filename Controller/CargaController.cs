@@ -58,6 +58,9 @@ namespace Controller
                     FileBean = cargarClientes(arch);
                     listaArchivos.Add(FileBean);
 
+                    FileBean = cargarClientesInstalaciones(arch);
+                    listaArchivos.Add(FileBean);
+
                     FileBean = cargarContactos(arch);
                     listaArchivos.Add(FileBean);
                 }
@@ -214,7 +217,10 @@ namespace Controller
 
             return CargaModel.executeBC_XLS(dataFilePath, "dbo.TMP_Cliente", "CLIENTES", mapping, "USP_CARGACLIENTES");
         }
-
+        private static FileCargaBean cargarClientesInstalaciones(string dataFilePath)
+        {
+            return CargaModel.executeBC_XLS_instalacion( "INSTALACIONES", "USPC_CARGACLIENTEINSTALACION");
+        }
 
         private static FileCargaBean cargarContactos(string dataFilePath)
         {

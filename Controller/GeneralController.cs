@@ -136,6 +136,9 @@ namespace Controller
                 case "CLIENTES":
                     SP = "USPC_ERROR_CLIENTE";
                     break;
+                case "INSTALACIONES":
+                    SP = "USPC_ERROR_CLIENTEINSTALACION";                    
+                    break;
                 case "CONTACTOS":
                     SP = "USPC_ERROR_CONTACTOS";
                     break;

@@ -96,7 +96,7 @@ public partial class BanOportunidad : PageController
     }
 
     [WebMethod]
-    public static String Update(string id, string ConfOpor, string RazonSocial, string Ruc, String Rubro, String Region, String Canal, String Responsable, String CodCliente, String controldinamico)
+    public static String Update(string id, string ConfOpor,  String Responsable, String CodCliente, String controldinamico)
     {
         try
         {
@@ -121,12 +121,7 @@ public partial class BanOportunidad : PageController
                 id = id,
                 ConfOpor = ConfOpor,
                 CliExist = "T",
-                RazonSocial = RazonSocial,
-                Ruc = Ruc,//FormsAuthentication.HashPasswordForStoringInConfigFile(clave, "sha1"),
-                Rubro = Rubro,
-                Region = Region,
-                Canal = Canal,
-                Responsable = usuSession,
+                Responsable = Responsable,
                 CodCliente = CodCliente,
                 lstControlDinamico = lControlDin,
             };

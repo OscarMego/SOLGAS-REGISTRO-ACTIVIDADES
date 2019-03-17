@@ -22,7 +22,7 @@ namespace View.Acciones.Carga
             if (dataJSON != null)
             {
                 modalLabel.InnerText = dataJSON["codigo"].ToUpper();
-                label2.InnerText = "Formato inválido del archivo " + dataJSON["codigo"] + ". Por favor, revíselo.";
+                label2.InnerText = "Formato inválido del archivo " + dataJSON["codigo"] + ". Por favor, revíselo. SOLO SE MUESTRAN LOS 100 PRIMEROS";
                 System.Data.DataTable dt = GeneralController.getErroresCarga(dataJSON["codigo"]);
                 numerReg.Value = dt.Rows.Count.ToString();
                 grilla.DataSource = dt;

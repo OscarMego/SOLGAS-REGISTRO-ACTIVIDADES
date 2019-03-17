@@ -90,9 +90,9 @@ namespace Controller
             return result;
         }
 
-        public static List<SubTipoActividadBean> GetAllByType(String Codigo)
+        public static List<SubTipoActividadBean> GetAllByType(String Codigo,String idusuario)
         {
-            DataTable dt= SubTipoActividadModel.GetAllByType(Codigo);
+            DataTable dt= SubTipoActividadModel.GetAllByType(Codigo,idusuario);
             List<SubTipoActividadBean> lobj = new List<SubTipoActividadBean>();
             if (dt != null && dt.Rows.Count > 0)
             {

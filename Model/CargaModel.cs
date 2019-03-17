@@ -72,9 +72,37 @@ namespace Model
                 DataTable dt = SqlConnector.getDataTable(spLogic);
                 foreach (DataRow row in dt.Rows)
                 {
-                    BE.subidos = (int)row[0];
-                    BE.insertados = (int)row[1];
-                    BE.actualizados = (int)row[2];
+                    BE.subidos = Int32.Parse(row[0].ToString());
+                    BE.insertados = Int32.Parse(row[1].ToString());
+                    BE.actualizados = Int32.Parse(row[2].ToString());
+                    BE.errorData = (string)row[3];
+                }
+            }
+            catch (Exception ex1)
+            {
+                if (ex1.ToString().Contains("Received an invalid column length from the bcp client for colid"))
+                {
+                    BE.errorExecute += "Uno de los registros excede la logitud de campo.";
+                }
+                else
+                {
+                    BE.errorExecute += ex1.Message;
+                }
+            }
+            return BE;
+        }
+        public static FileCargaBean executeBC_XLS_instalacion(string Nombre, String spLogic)
+        {
+            FileCargaBean BE = new FileCargaBean();
+            BE.archivo = Nombre;
+            try
+            {
+                DataTable dt = SqlConnector.getDataTable(spLogic);
+                foreach (DataRow row in dt.Rows)
+                {
+                    BE.subidos = Int32.Parse(row[0].ToString());
+                    BE.insertados = Int32.Parse(row[1].ToString());
+                    BE.actualizados = Int32.Parse(row[2].ToString());
                     BE.errorData = (string)row[3];
                 }
             }
