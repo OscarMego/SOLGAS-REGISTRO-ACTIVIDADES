@@ -61,98 +61,13 @@
     </style>
     <script>
         $(document).ready(function () {
-
             if ($('#hidUtilitarios').val() == "0") {
                 $('#divUtilitarios').hide();
             } else {
                 $('#divUtilitarios').show();
             }
-
             accionesCarga();
-
             detReg(".btnData", "cargaErrores.aspx");
-
-            //$('#rblTipoCarga_0').live('click', function (e) {
-            //$(document).on('click', '#rblTipoCarga_0', function (e) {
-
-            //});
-
-            //$(document).on('click', '#rblTipoCarga_1', function (e) {
-            //    var uploader = new qq.FileUploader({
-            //        element: document.getElementById('file-uploader'),
-            //        action: 'Upload.ashx',
-            //        debug: false,
-            //        allowedExtensions: ['txt', 'zip'],
-            //        template: $("#file-upload-template").html(),
-            //        fileTemplate: '<li> ' +
-            //				  '		<div class="file-info-space"> ' +
-            //				  '    		<div class="file-info-box"> ' +
-            //				  '				<div class="file-info-border"> ' +
-            //				  '           		<div class="file-info-name"><span class="qq-upload-file"></span></div> ' +
-            //				  '               	<div class="file-info-percentage"><span class="qq-upload-spinner"></span></div> ' +
-            //				  '               	<div class="file-info-size"><span class="qq-upload-size"></span></div> ' +
-            //				  '               	<div class="file-info-name"><a class="qq-upload-cancel" href="#">Cancel</a></div> ' +
-            //				  '               	<div class="file-info-name"><span class="qq-upload-failed-text">Failed</span></div> ' +
-            //				  '          	</div> ' +
-            //				  '			</div> ' +
-            //				  '		</div> ' +
-            //				  '</li> ',
-            //        onComplete: function (id, file, responseJSON) {
-            //            $(this.element).find('.qq-upload-list li').each(function () {
-            //                if ($(this).attr('qqFileId') == id) {
-            //                    $(this).find('.file-info-space').attr('id', "fsp-" + str_validate(file));
-            //                    $(this).find('.file-info-box').attr('id', "fbx-" + str_validate(file));
-            //                    $(this).find('.file-info-border').attr('id', "fbd-" + str_validate(file));
-            //                    //    $(this).find('.file-info-box').append("<div class='boton-ejecutar' id='exc-" + str_validate(file) + "' idclass='" + str_validate(file) + "' filename='" + file + "'><img src='../images/icons/carga/ico_carga_exc.png' /></div>");
-            //                    $(this).find(".file-info-box").append("<div class='boton-borrar' id='del-" + str_validate(file) + "' idclass='" + str_validate(file) + "' filename='" + file + "' error='no'><img src='../../images/icons/carga/ico_carga_del.png' /></div>");
-            //                    $('.boton-ejecutar').show();
-            //                }
-            //            });
-
-            //        }
-            //    });
-            //});
-            //$("#rblTipoCarga").change(
-            //    function () {
-            //        var chk = $("#rblTipoCarga").find(":checked").val();
-            //        debugger;
-            //        if (chk=="E") {
-            //            var uploader = new qq.FileUploader({
-            //                element: document.getElementById('file-uploader'),
-            //                action: 'Upload.ashx',
-            //                debug: false,
-            //                allowedExtensions: ['xls', 'xlsx', 'zip'],
-            //                template: $("#file-upload-template").html(),
-            //                fileTemplate: '<li> ' +
-            //                          '		<div class="file-info-space"> ' +
-            //                          '    		<div class="file-info-box"> ' +
-            //                          '				<div class="file-info-border"> ' +
-            //                          '           		<div class="file-info-name"><span class="qq-upload-file"></span></div> ' +
-            //                          '               	<div class="file-info-percentage"><span class="qq-upload-spinner"></span></div> ' +
-            //                          '               	<div class="file-info-size"><span class="qq-upload-size"></span></div> ' +
-            //                          '               	<div class="file-info-name"><a class="qq-upload-cancel" href="#">Cancel</a></div> ' +
-            //                          '               	<div class="file-info-name"><span class="qq-upload-failed-text">Failed</span></div> ' +
-            //                          '          	</div> ' +
-            //                          '			</div> ' +
-            //                          '		</div> ' +
-            //                          '</li> ',
-            //                onComplete: function (id, file, responseJSON) {
-            //                    $($("#rblTipoCarga").find(":checked").element).find('.qq-upload-list li').each(function () {
-            //                        if ($(this).attr('qqFileId') == id) {
-            //                            $(this).find(":checked").find('.file-info-space').attr('id', "fsp-" + str_validate(file));
-            //                            $(this).find(":checked").find('.file-info-box').attr('id', "fbx-" + str_validate(file));
-            //                            $(this).find('.file-info-border').attr('id', "fbd-" + str_validate(file));
-            //                            //    $(this).find('.file-info-box').append("<div class='boton-ejecutar' id='exc-" + str_validate(file) + "' idclass='" + str_validate(file) + "' filename='" + file + "'><img src='../images/icons/carga/ico_carga_exc.png' /></div>");
-            //                            $(this).find(".file-info-box").append("<div class='boton-borrar' id='del-" + str_validate(file) + "' idclass='" + str_validate(file) + "' filename='" + file + "' error='no'><img src='../../images/icons/carga/ico_carga_del.png' /></div>");
-            //                            $('.boton-ejecutar').show();
-            //                        }
-            //                    });
-
-            //                }
-            //            });
-            //        }
-            //    });
-
         });
     </script>
 </head>
@@ -173,7 +88,7 @@
                     <div class="row filtergrid">
                         <form>
                             <div class="col-sx-12 col-sm-9 col-md-9 form-group">
-                                <label for="ddlTipo">Tipo Archivos Aceptados XLS, XLSX</label>
+                                <label for="ddlTipo">Tipo Archivo Aceptado XLSX</label>
                                 <%--<asp:RadioButtonList ID="rblTipoCarga" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                     <asp:ListItem Value="E" style="padding: 10px;" class="carga_label">Excel(.xls / .xlsx)</asp:ListItem>
                                    <asp:ListItem Text="" style="padding: 10px;" Value="T" class="carga_label">Texto (.txt)</asp:ListItem>
@@ -313,7 +228,7 @@
                 element: document.getElementById('file-uploader'),
                 action: 'Upload.ashx',
                 debug: false,
-                allowedExtensions: ['xls', 'xlsx', 'zip'],
+                allowedExtensions: ['xlsx'],
                 template: $("#file-upload-template").html(),
                 fileTemplate: '<li> ' +
                           '		<div class="file-info-space"> ' +

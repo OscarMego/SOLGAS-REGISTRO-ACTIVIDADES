@@ -79,7 +79,7 @@ namespace View.Mantenimiento.Oportunidad
 
                     if (campo == string.Empty)
                     {
-                        campo = "[Fecha],[Canal],[Zona],[Tipo Actividad],[Usuario],[Cliente]";
+                        campo = "[Fecha],[Canal],[Zona],[Tipo Actividad],[Sub Tipo Actividad],[Usuario],[Cliente]";
                     }
 
                     var item = new OportunidadBean
@@ -200,7 +200,7 @@ namespace View.Mantenimiento.Oportunidad
                               "     <th scope='col'>Canal</th>" +
                               "     <th scope='col'>Zona</th>" +
                               "     <th scope='col'>Tipo Actividad</th>" +
-                            //"     <th scope='col'>Detalle Actividad</th>" +
+                            "     <th scope='col'>Sub Tipo de Actividad</th>" +
                             "     <th scope='col'>Usuario</th>" +
                             "     <th scope='col'>RUC</th>" +
                             "     <th scope='col'>Cliente</th>" +
@@ -225,7 +225,7 @@ namespace View.Mantenimiento.Oportunidad
                                             "<td align='center'  >" + eRepor.Canal + "</td>" +
                                             "<td align='center'  >" + eRepor.Zona + "</td>" +
                                             "<td align='center'  >" + eRepor.TipoActividad + "</td>" +
-                                            //"<td align='center'  >" + eRepor.DetalleActividad + "</td>" +
+                                            "<td align='center'  >" + eRepor.DetalleActividad + "</td>" +
                                             "<td align='center'  >" + eRepor.Usuario + "</td>" +
                                             "<td align='center'  >" + eRepor.Ruc + "</td>" +
                                             "<td align='center'  >" + eRepor.Cliente + "</td>" +

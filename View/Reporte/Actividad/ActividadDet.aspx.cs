@@ -55,7 +55,7 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
           "     <th scope='col'>Canal</th>" +
           "     <th scope='col'>Zona</th>" +
           "     <th scope='col'>Tipo Actividad</th>" +
-        //"     <th scope='col'>Detalle Actividad</th>" +
+        "     <th scope='col'>Sub Tipo de Actividad</th>" +
         "     <th scope='col'>Usuario</th>" +
         "     <th scope='col'>RUC</th>" +
         "     <th scope='col'>Cliente</th>" +
@@ -80,7 +80,7 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
                         "<td align='center'  >" + eRepor.Canal + "</td>" +
                         "<td align='center'  >" + eRepor.Zona + "</td>" +
                         "<td align='center'  >" + eRepor.TipoActividad + "</td>" +
-                        //"<td align='center'  >" + eRepor.DetalleActividad + "</td>" +
+                        "<td align='center'  >" + eRepor.DetalleActividad + "</td>" +
                         "<td align='center'  >" + eRepor.Usuario + "</td>" +
                         "<td align='center'  >" + eRepor.Ruc + "</td>" +
                         "<td align='center'  >" + eRepor.Cliente + "</td>" +

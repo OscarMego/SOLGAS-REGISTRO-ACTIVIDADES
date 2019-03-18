@@ -30,7 +30,7 @@ namespace Controller
         {
             List<String> arrArchivosCargados = new List<String>();
             String[] extensions;
-            extensions = new String[] { "*.xls", "*.xlsx" };
+            extensions = new String[] { "*.xlsx" };
             foreach (String extension in extensions)
             {
                 String[] filesArr = Directory.GetFiles(filesLocation, extension, SearchOption.TopDirectoryOnly);
