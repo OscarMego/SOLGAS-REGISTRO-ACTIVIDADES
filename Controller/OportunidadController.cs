@@ -25,6 +25,11 @@ namespace Controller
             result.totalPages = Utility.calculateNumberOfPages(result.totalrows, item.rows);
             return result;
         }
+        public static List<OportunidadBean> GetReporteDetalle(String item)
+        {
+            var result = OportunidadModel.GetReporteDetalle(item);
+            return result;
+        }
         public static PaginateOportunidadBean GetNotifiReporteAllPaginate(OportunidadBean item)
         {
             var result = OportunidadModel.GetNotifiReporteAllPaginate(item);

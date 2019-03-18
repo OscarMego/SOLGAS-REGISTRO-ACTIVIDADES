@@ -892,6 +892,7 @@
     <Content Include="Acciones\Carga\Upload.ashx" />
     <Content Include="Mantenimiento\BanOportunidad\fileUploader.ashx" />
     <Content Include="Mantenimiento\BanOportunidad\FillCliente.ashx" />
+    <Content Include="Reporte\Actividad\ActividadDet.aspx" />
     <Content Include="Reporte\ExportarOportunidad.aspx" />
     <Content Include="Reporte\Oportunidad\FillCliente.ashx" />
     <None Include="Properties\PublishProfiles\solgas.pubxml" />
@@ -1287,6 +1288,13 @@
       <DependentUpon>NotPrincipalGrid.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporte\Actividad\ActividadDet.aspx.cs">
+      <DependentUpon>ActividadDet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte\Actividad\ActividadDet.aspx.designer.cs">
+      <DependentUpon>ActividadDet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\Actividad\Resumido.aspx.cs">
       <DependentUpon>Resumido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

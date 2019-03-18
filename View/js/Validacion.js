@@ -934,3 +934,41 @@ function isDecimalNumber(evt, c) {
 
     return true;
 }
+var getKeyCode = function (str) {
+    return str.charCodeAt(str.length - 1);
+}
+function isDecimalNumberOnInput(evt, c) {
+    var charCode = getKeyCode(evt.data);
+    var valText = c.value.substring(0, c.value.length - 1)
+    var dot1 = valText.indexOf('.');
+    var dot2 = valText.lastIndexOf('.');
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+        $(c).val($(c).val().substring(0, $(c).val().length - 1));
+    else if (charCode == 46 && (dot1 == dot2) && dot1 != -1 && dot2 != -1)
+        $(c).val($(c).val().substring(0, $(c).val().length - 1));
+}
+function fc_PermiteNumerosOnInput(evt, c) {
+    var charCode = getKeyCode(evt.data);
+    if ((charCode < 48) || (charCode > 57)) {
+        $(c).val($(c).val().substring(0, $(c).val().length - 1));
+    }
+}
+
+function SoloAlfanumericoOnInput(e, c) {
+    var charCode = getKeyCode(e.data);
+    tecla = String.fromCharCode(charCode).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";//Se define todo el abecedario que se quiere que se muestre.
+    especiales = [8, 6]; //, 37, 39, 46 Es la validación del KeyCodes, que teclas recibe el campo de texto.
+
+    tecla_especial = false
+    for (var i in especiales) {
+        if (charCode == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        $(c).val($(c).val().substring(0, $(c).val().length - 1));
+    }
+}

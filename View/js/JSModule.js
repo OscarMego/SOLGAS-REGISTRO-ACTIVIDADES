@@ -2087,9 +2087,9 @@ function generadorControles(Contenedor, idOp, Modificable, idConfOp, Obligatorio
         control = control + (Obligatorio == 'T' && disableStr == '' ? '<span style="color: #b94a48">*</span>' : '');
         control = control + '<input type="text" id="Mtxt' + idConfOp + '"  ' + ctrlUnique;
         control = control + ' class="controldinamico ' + (Obligatorio == 'T' && disableStr == '' ? 'requerid' : '') + ' form-control" ';
-        control = control + ' ' + (TipoControl == "4" ? 'onkeypress = "return fc_PermiteNumeros(event,this)"' : '') + ' ';
-        control = control + ' ' + (TipoControl == "1" ? 'onkeypress = "return SoloAlfanumerico(event);"' : '') + ' ';
-        control = control + ' ' + (TipoControl == "6" ? 'onkeypress = "return isDecimalNumber(event,this)"' : '') + ' ';
+        control = control + ' ' + (TipoControl == "4" ? 'oninput = "fc_PermiteNumerosOnInput(event,this)"' : '') + ' ';
+        control = control + ' ' + (TipoControl == "1" ? 'oninput = "SoloAlfanumericoOnInput(event,this);"' : '') + ' ';
+        control = control + ' ' + (TipoControl == "6" ? 'oninput = "isDecimalNumberOnInput(event,this)"' : '') + ' ';
         control = control + ' maxlength="' + String(MaxCaracter) + '" value ="' + ValorControl + '" ' + disableStr + ' />';
         control = control + '</div>';
 

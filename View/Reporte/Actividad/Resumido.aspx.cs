@@ -275,7 +275,7 @@ public partial class Reporte_Actividad_Resumido : PageController
                 {
                     Text = x.Nombre,
                     Value = x.IdZona.ToString(),
-                    Selected = true,
+                    Selected = false,
                 }).ToList();
 
             return lstComboBean;

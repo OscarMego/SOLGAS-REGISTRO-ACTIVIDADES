@@ -290,6 +290,70 @@ namespace Model
             return new PaginateOportunidadBean { lstResultados = lobj, totalrows = total };
 
         }
+        public static List<OportunidadBean> GetReporteDetalle(String item)
+        {
+            List<OportunidadBean> lobj = new List<OportunidadBean>();
+            int total = 0;
+
+            ArrayList alParameters = new ArrayList();
+            SqlParameter parameter;
+            parameter = new SqlParameter("@idActividades", SqlDbType.VarChar, -1);
+            parameter.Value = item;
+            alParameters.Add(parameter);
+            DataTable dt = SqlConnector.getDataTable("spS_RepSelActividadDinamicoDetalle", alParameters);
+            List<string> ecd = new List<string>();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataColumn col in dt.Columns)
+                {
+                    string nombre = col.ColumnName;
+                    if (nombre.Count() > 3)
+                    {
+                        string cod = nombre.Substring(0, 3);
+                        if (cod.Equals(Constantes.ColDinamico))
+                        {
+                            ecd.Add(nombre);
+                        };
+                    }
+                }
+                foreach (DataRow row in dt.Rows)
+                {
+                    total = int.Parse(row["total"].ToString());
+                    List<ComboBean> lcd = new List<ComboBean>();
+                    foreach (var lstrin in ecd.ToList())
+                    {
+                        var columna = lstrin.Substring(3, lstrin.Count() - 3);
+                        lcd.Add(new ComboBean
+                        {
+                            Codigo = columna,
+                            Nombre = row[lstrin].ToString(),
+                        });
+                    }
+                    OportunidadBean obj = new OportunidadBean
+                    {
+                        Codigo = row["Codigo"].ToString(),
+                        Fecha = row["Fecha"].ToString(),
+                        Canal = row["Canal"].ToString(),
+                        Zona = row["Zona"].ToString(),
+                        TipoActividad = row["Tipo Actividad"].ToString(),
+                        DetalleActividad = row["Sub Tipo Actividad"].ToString(),
+                        Latitud = row["Latitud"].ToString(),
+                        Longitud = row["Longitud"].ToString(),
+                        Usuario = row["Usuario"].ToString(),
+                        Ruc = row["RUC"].ToString(),
+                        Cliente = row["Cliente"].ToString(),
+                        Contacto = row["Contacto"].ToString(),
+                        Telefono = row["Telefono"].ToString(),
+                        Email = row["Email"].ToString(),
+                        Cargo = row["Cargo"].ToString(),
+                        columnasDinamicas = lcd,
+                    };
+                    lobj.Add(obj);
+                }
+            }
+            return lobj;
+
+        }
         public static PaginateOportunidadBean GetNotifiReporteAllPaginate(OportunidadBean item)
         {
             List<OportunidadBean> lobj = new List<OportunidadBean>();

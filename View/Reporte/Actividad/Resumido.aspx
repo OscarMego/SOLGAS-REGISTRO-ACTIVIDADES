@@ -130,7 +130,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-sm-4 col-md-2 form-group">
+                            <div class="col-sm-4 col-md-2 form-group" style="display:none">
                                 <label for="ddlCliente">Cliente</label>
                                 <select id="ddlCliente" multiple="multiple" class="form-control">
                                 </select>
@@ -218,7 +218,7 @@
                 cargaComboMulti(urlPrin + '/ComboMultTipoActividad', "#ddlTipoActividad");
                 cargaComboMulti(urlPrin + '/ComboMultDetalleActividad', "#ddlDetalleActividad");
                 cargaComboMulti(urlPrin + '/ComboMultUsuario', "#ddlUsuario");
-                cargaComboMulti(urlPrin + '/ComboMultCliente', "#ddlCliente");
+                //cargaComboMulti(urlPrin + '/ComboMultCliente', "#ddlCliente");
                 cargaComboMulti(urlPrin + '/ComboMultiCampo', "#ddlCampo");
                 
                 
@@ -240,7 +240,7 @@
                     $("#divGridViewData").html("");
                 });
 
-                detReg(".btndetalle", "OportunidadDet.aspx");
+                detReg(".btndetalle", "ActividadDet.aspx");
 
                 //funcion encarga de la exportacion
                 var urlXLS = "../exportar.aspx";

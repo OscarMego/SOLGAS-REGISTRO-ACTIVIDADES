@@ -129,9 +129,18 @@ namespace View.Mantenimiento.Oportunidad
                                 for (int i = 0; i < headFields.columnasDinamicas.Count - 1; i++)
                                 {
                                     strHTML.Append("<th scope='col'>");
-                                    strHTML.Append(headFields.columnasDinamicas[i].Codigo);
+                                    if (i == headFields.columnasDinamicas.Count - 2)
+                                    {
+                                        strHTML.Append("Detalle");
+                                    }
+                                    else
+                                    {
+                                        strHTML.Append(headFields.columnasDinamicas[i].Codigo);
+                                    }
+
                                     strHTML.Append("</th>");
                                 }
+                                strHTML.Append("</th>");
                             }
                             strHTML.Append("</tr>");
                             strHTML.Append("</thead>");
@@ -145,10 +154,19 @@ namespace View.Mantenimiento.Oportunidad
                                 for (int i = 0; i < data.Count - 1; i++)
                                 {
                                     strHTML.Append("<td>");
-                                    strHTML.Append(data[i].Nombre);
+                                    if (i == data.Count - 2)
+                                    {
+                                        strHTML.Append("<button type = 'button' class='btn btndetalle nuevo movil' title='Ver Detalle' " +
+                                                                                      "cod='" + (data[i].Nombre) + "'>" +
+                                                                                      "<i class='fas fa-search'></i>" +
+                                                                                 "</button>");
+                                    }
+                                    else
+                                    {
+                                        strHTML.Append(data[i].Nombre);
+                                    }
                                     strHTML.Append("</td>");
                                 }
-
                                 strHTML.Append("</tr>");
                             }
 
@@ -182,7 +200,7 @@ namespace View.Mantenimiento.Oportunidad
                               "     <th scope='col'>Canal</th>" +
                               "     <th scope='col'>Zona</th>" +
                               "     <th scope='col'>Tipo Actividad</th>" +
-                              //"     <th scope='col'>Detalle Actividad</th>" +
+                            //"     <th scope='col'>Detalle Actividad</th>" +
                             "     <th scope='col'>Usuario</th>" +
                             "     <th scope='col'>RUC</th>" +
                             "     <th scope='col'>Cliente</th>" +
@@ -246,7 +264,7 @@ namespace View.Mantenimiento.Oportunidad
                                 html.Append("</tr>");
                             }
 
-                            html.Append("</tbody>" + "</table>9");
+                            html.Append("</tbody>" + "</table>");
 
                             litGrilla.Text = html.ToString();
 
