@@ -76,7 +76,8 @@ public partial class Mantenimiento_TipoActividad_TipoActividadNew : System.Web.U
     {
         try
         {
-            var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" });
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+            var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" },codigo);
             Utility.ComboNuevo(MddlIdNegocio, canal, "IdNegocio", "Nombre");
         }
         catch (Exception ex)

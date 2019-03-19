@@ -3,6 +3,7 @@ using Controller;
 using Model.bean;
 using System;
 using System.Configuration;
+using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using Tools;
@@ -31,7 +32,8 @@ public partial class Mantenimiento_TipoActividad_TipoActividad : PageController
     {
         try
         {
-            var canal = NegocioController.GetAll(new NegocioBean());
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+            var canal = NegocioController.GetAll(new NegocioBean(), codigo);
             Utility.ComboBuscar(ddlNegocio, canal, "IdNegocio", "Nombre");
         }
         catch (Exception ex)

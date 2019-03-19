@@ -65,7 +65,7 @@
                     <asp:BoundField DataField="Email" HeaderText="Email" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Cargo" HeaderText="Cargo" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Cliente" HeaderText="Cliente" ItemStyle-HorizontalAlign="Center" />
-                    <asp:BoundField DataField="ClienteInstalacion" HeaderText="ClienteInstalacion" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="ClienteInstalacion" HeaderText="Instalación" ItemStyle-HorizontalAlign="Center" />
 
                     <asp:TemplateField ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="tbmovil">
                         <HeaderTemplate>

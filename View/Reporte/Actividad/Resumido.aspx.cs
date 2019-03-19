@@ -243,9 +243,9 @@ public partial class Reporte_Actividad_Resumido : PageController
     {
         try
         {
-            var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
 
-            List<ListItem> lstComboBean = NegocioController.GetAll(new NegocioBean { Nombre = "" }).
+            List<ListItem> lstComboBean = NegocioController.GetAll(new NegocioBean { Nombre = "", }, codigo).
                 Select(x => new ListItem()
                 {
                     Text = x.Nombre,
@@ -268,9 +268,8 @@ public partial class Reporte_Actividad_Resumido : PageController
     {
         try
         {
-            var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
-
-            List<ListItem> lstComboBean = ZonaController.GetAll(new ZonaBean { Flag = "T" }).
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+            List<ListItem> lstComboBean = ZonaController.GetFiltroActividad(codigo).
                 Select(x => new ListItem()
                 {
                     Text = x.Nombre,
@@ -293,7 +292,7 @@ public partial class Reporte_Actividad_Resumido : PageController
     {
         try
         {
-            var codigo = HttpContext.Current.Session["lgn_codigo"].ToString();
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
 
             List<ListItem> lstComboBean = TipoActividadController.GetAll(new TipoActividadBean { Flag = "T" }).
                 Select(x => new ListItem()

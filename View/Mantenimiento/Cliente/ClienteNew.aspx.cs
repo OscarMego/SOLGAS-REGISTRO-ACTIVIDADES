@@ -6,9 +6,11 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Tools;
 
 namespace View.Mantenimiento.Cliente
@@ -39,7 +41,7 @@ namespace View.Mantenimiento.Cliente
                         ClienteBean obj = ClienteController.Get(new ClienteBean { CLI_PK = int.Parse(dataJSON["codigo"].ToString()) });
                         myModalLabel.InnerText = "Editar " + Model.bean.IdiomaCultura.getMensaje(Model.bean.IdiomaCultura.WEB_CLIENTE);
                         List<ClienteInstalacionBean> nopaginate = new List<ClienteInstalacionBean>();
-                        nopaginate = ClienteController.getAllInstalacion(Codigo,"-1");
+                        nopaginate = ClienteController.getAllInstalacion(Codigo, "-1");
                         if (obj != null)
                         {
                             hdIdCliente.Value = (obj.CLI_PK).ToString();
@@ -75,10 +77,10 @@ namespace View.Mantenimiento.Cliente
             {
                 var zona = ZonaController.GetAll(new ZonaBean { Flag = "T" });
                 Utility.ComboNuevo(MddlIdZona, zona, "IdZona", "Nombre");
-                var negocio = NegocioController.GetAll(new NegocioBean { Nombre = "" });
+                var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+                var negocio = NegocioController.GetAll(new NegocioBean { Nombre = "" }, codigo);
                 Utility.ComboNuevo(MddlIdNegocio, negocio, "IdNegocio", "Nombre");
-                var usurio = UsuarioController.GetAll(new UsuarioBean { FlgHabilitado = "T", IdPerfil = 4 });
-                Utility.ComboNuevo(MddlIdUsuario, usurio, "IdUsuario", "Nombres");
+
 
                 var rubro = GeneralTipoController.GetAll(new GeneralTipoBean { IdTipo = 1 });
                 Utility.ComboNuevo(MddlIdRubro, rubro, "IdGeneral", "Nombre");
@@ -96,7 +98,7 @@ namespace View.Mantenimiento.Cliente
                 throw new Exception("ERROR: " + ex.Message);
             }
         }
-
+       
         public String DibujaTabla(List<ClienteInstalacionBean> lst)
         {
             String GenTabla = "";

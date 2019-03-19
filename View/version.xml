@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<versiones suite="2.2.7" responsable="svidal" fecha="20170515">
+
+  <objeto name="server-web">
+    <propiedad name="version" value="2.2.6"/>
+    <propiedad name="version_base" value=""/>
+    <propiedad name="framework" value=""/>
+    <propiedad name="estado" value="p"/>
+  </objeto>  
+  
+  <objeto name="server-mobile">
+    <propiedad name="version" value="2.1.6"/>
+    <propiedad name="version_base" value=""/>
+    <propiedad name="framework" value=""/>
+    <propiedad name="estado" value="p"/>
+  </objeto>  
+
+  <objeto name="android">
+    <propiedad name="version" value="2.2.8"/>
+    <propiedad name="version_base" value=""/>
+    <propiedad name="framework" value="2.0.0"/>
+    <propiedad name="estado" value="p"/>
+  </objeto>
+
+  <objeto name="instalador-android">
+    <propiedad name="version" value="2.2.6"/>
+    <propiedad name="version_base" value=""/>
+    <propiedad name="framework" value="2.0.0"/>
+    <propiedad name="estado" value="p"/>
+  </objeto>
+  
+  <objeto name="db">
+    <propiedad name="version" value="20170515"/>
+    <propiedad name="version_base" value=""/>
+    <propiedad name="framework" value=""/>
+    <propiedad name="estado" value="p"/>
+  </objeto>  
+ 
+</versiones>

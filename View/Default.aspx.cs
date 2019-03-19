@@ -159,6 +159,7 @@ public partial class _Default : System.Web.UI.Page
                                 Session["lgn_perfil"] = bean.IdPerfil;
                                 Session["lgn_perfilmenu"] = bean.hashRol;
                                 Session["lgn_email"] = bean.Email;
+                                Session["lgn_idcanal"] = bean.IdCanal;
                                 Response.Redirect("Main.aspx");
 
                             }

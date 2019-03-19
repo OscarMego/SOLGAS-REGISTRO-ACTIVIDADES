@@ -42,7 +42,8 @@ namespace View.Mantenimiento.Cliente
             {
                 //var zona = ZonaController.GetAll(new ZonaBean { Flag = "T" });
                 //Utility.ComboBuscar(ddlIdZona, zona, "IdZona", "Nombre");
-                var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" });
+                var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+                var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" }, codigo);
                 Utility.ComboBuscar(ddlIdCanal, canal, "IdNegocio", "Nombre");
             }
             catch (Exception ex)
@@ -52,12 +53,58 @@ namespace View.Mantenimiento.Cliente
             }
         }
         #region Webservice
+
+        [WebMethod]
+        public static List<ListItem> ComboUsuarios(string negocioID)
+        {
+            try
+            {
+                List<ListItem> lstComboBean = UsuarioController.GetAll(new UsuarioBean { FlgHabilitado = "T", IdPerfil = 4, IdCanal = Int32.Parse(negocioID) }).
+                    Select(x => new ListItem()
+                    {
+                        Text = x.Nombres,
+                        Value = x.IdUsuario.ToString(),
+                        Selected = false,
+                    }).ToList();
+
+                return lstComboBean;
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.LogException(ex, "Error :Cliente_Negocio: ");
+                return new List<ListItem>();
+            }
+        }
         [WebMethod]
         public static String Insert(String Razon_Social, String RUC, String Direccion, String Referencia, int IdNegocio, int IdRubro, int IdRegion, int IdOrganizacionVenta, int IdCanal, int IdTipo)
         {
             try
             {
                 List<ClienteInstalacionBean> obj = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
+                if (IdTipo == 1)
+                {
+                    if (obj == null || obj.Count < 1)
+                    {
+                        throw new Exception("El tipo cliente solgas debe tener al menos una instalación.");
+                    }
+                    else
+                    {
+                        bool tieneInstalacion = false;
+                        foreach (ClienteInstalacionBean obj1 in obj)
+                        {
+                            if (obj1.Habilitado == "T")
+                            {
+                                tieneInstalacion = true;
+                                break;
+                            }
+                        }
+                        if (!tieneInstalacion)
+                        {
+                            throw new Exception("El tipo cliente solgas debe tener al menos una instalación.");
+                        }
+                    }
+                }
                 var item = new ClienteBean
                 {
                     Razon_Social = Razon_Social,
@@ -89,6 +136,29 @@ namespace View.Mantenimiento.Cliente
             try
             {
                 List<ClienteInstalacionBean> obj = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
+                if (IdTipo == 1)
+                {
+                    if (obj == null || obj.Count < 1)
+                    {
+                        throw new Exception("El tipo cliente solgas debe tener al menos una instalación.");
+                    }
+                    else
+                    {
+                        bool tieneInstalacion = false;
+                        foreach (ClienteInstalacionBean obj1 in obj)
+                        {
+                            if (obj1.Habilitado == "T")
+                            {
+                                tieneInstalacion = true;
+                                break;
+                            }
+                        }
+                        if (!tieneInstalacion)
+                        {
+                            throw new Exception("El tipo cliente solgas debe tener al menos una instalación.");
+                        }
+                    }
+                }
                 var item = new ClienteBean
                 {
                     CLI_PK = int.Parse(CLI_PK),

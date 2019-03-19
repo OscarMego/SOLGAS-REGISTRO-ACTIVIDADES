@@ -9,9 +9,9 @@ namespace Controller
 {
     public class NegocioController
     {
-        public static List<NegocioBean> GetAll(NegocioBean item)
+        public static List<NegocioBean> GetAll(NegocioBean item,String IDUSUARIO)
         {
-            return NegocioModel.GetAll(item);
+            return NegocioModel.GetAll(item, IDUSUARIO);
         }
     }
 }

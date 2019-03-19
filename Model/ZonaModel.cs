@@ -111,6 +111,31 @@ namespace Model
             }
             return lobj;
         }
+        public static List<ZonaBean> GetFiltroActividad(string idUsuario)
+        {
+            List<ZonaBean> lobj = new List<ZonaBean>();
+            ArrayList alParameters = new ArrayList();
+            SqlParameter parameter;
+            parameter = new SqlParameter("@FiltroUsuario", SqlDbType.VarChar, 10);
+            parameter.Value = idUsuario;
+            alParameters.Add(parameter);
+            DataTable dt = SqlConnector.getDataTable("upS_SelFiltroActividadAll", alParameters);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    ZonaBean obj = new ZonaBean
+                    {
+                        IdZona = int.Parse(row["IdZona"].ToString()),
+                        Codigo = row["Codigo"].ToString(),
+                        Nombre = row["Nombre"].ToString(),
+                        Flag = row["Flag"].ToString(),
+                    };
+                    lobj.Add(obj);
+                }
+            }
+            return lobj;
+        }
         public static PaginateZonaBean GetAllPaginate(ZonaBean item)
         {
             List<ZonaBean> lobj = new List<ZonaBean>();

@@ -981,6 +981,8 @@
     <Content Include="Reporte\Actividad\ActividadDet.aspx" />
     <Content Include="Reporte\ExportarOportunidad.aspx" />
     <Content Include="Reporte\Oportunidad\FillCliente.ashx" />
+    <Content Include="about\actualizarVersion.ashx" />
+    <Content Include="about\recuperarVersion.ashx" />
     <None Include="Properties\PublishProfiles\solgas.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1000,6 +1002,7 @@
     <Content Include="Reporte\Oportunidad\Oportunidad.aspx" />
     <Content Include="Reporte\Oportunidad\OportunidadDet.aspx" />
     <Content Include="Reporte\Oportunidad\OportunidadGrid.aspx" />
+    <Content Include="version.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

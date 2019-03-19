@@ -57,6 +57,10 @@ namespace Controller
         {
             return ZonaModel.GetAll(item);
         }
+        public static List<ZonaBean> GetFiltroActividad(string idUsuario)
+        {
+            return ZonaModel.GetFiltroActividad(idUsuario);
+        }
         public static List<ZonaBean> getClienteZonas(String idCLiente)
         {
             return ZonaModel.getClienteZonas(idCLiente);

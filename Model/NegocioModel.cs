@@ -12,7 +12,7 @@ namespace Model
 {
    public class NegocioModel
     {
-        public static List<NegocioBean> GetAll(NegocioBean item)
+        public static List<NegocioBean> GetAll(NegocioBean item,string IDUSUARIO)
         {
             DataSet ds;
 
@@ -20,13 +20,16 @@ namespace Model
             ArrayList alParameters = new ArrayList();
             SqlParameter parameter;
 
-            parameter = new SqlParameter("codigo", SqlDbType.VarChar, 100);
+            parameter = new SqlParameter("@codigo", SqlDbType.VarChar, 100);
             parameter.Value = item.Codigo;
             alParameters.Add(parameter);
-            parameter = new SqlParameter("nombre", SqlDbType.VarChar, 100);
+            parameter = new SqlParameter("@nombre", SqlDbType.VarChar, 100);
             parameter.Value = item.Nombre;
             alParameters.Add(parameter);
-
+            parameter = new SqlParameter("@FiltroUsuario", SqlDbType.VarChar, 100);
+            parameter.Value = IDUSUARIO;
+            alParameters.Add(parameter);
+            
             ds = SqlConnector.getDataset("spS_ManSelGRNegocioAll", alParameters);
             int total = 0;
 

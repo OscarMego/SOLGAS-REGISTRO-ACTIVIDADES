@@ -24,22 +24,22 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtCodigo">Codigo</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtCodigo" runat="server" onkeypress="return SoloAlfanumerico(event);" class="requerid form-control" maxlength="10" />
+                                    <input type="text" id="MtxtCodigo" runat="server" onkeypress="return SoloAlfanumerico(event);" class="requerid form-control" maxlength="50" />
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtNombres">Nombres</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtNombres" runat="server" onkeypress="return SoloAlfanumerico(event);" class="requerid form-control" maxlength="80" />
+                                    <input type="text" id="MtxtNombres" runat="server" class="requerid form-control" maxlength="80" />
                                 </div>
 
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtLoginUsuario">Login</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtLoginUsuario" runat="server" onkeypress="return SoloAlfanumerico(event);" class="requerid form-control" maxlength="10" />
+                                    <input type="text" id="MtxtLoginUsuario" runat="server" class="requerid form-control" maxlength="100" />
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label for="Mtxtclave">Clave</label>
-                                    <input type="password" id="MtxtClave" runat="server" class="requerid form-control" maxlength="20" />
+                                    <input type="password" id="MtxtClave" runat="server" class="requerid form-control" maxlength="100" />
                                     <input type="hidden" id="hidClave" runat="server" />
                                 </div>
 
@@ -62,7 +62,7 @@
                                 <div class="col-sm-6 form-group">
                                     <label for="MtxtEmail">Correo Electrónico</label>
                                     <span style="color: #b94a48">*</span>
-                                    <input type="text" id="MtxtEmail" runat="server" placeholder="Correo Electrónico" class="requerid form-control" maxlength="50" />
+                                    <input type="text" id="MtxtEmail" runat="server" placeholder="Correo Electrónico" class="requerid form-control" maxlength="100" />
                                 </div>
 
                                 <div class="col-sm-6 form-group">

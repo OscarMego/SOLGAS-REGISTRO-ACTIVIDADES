@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Web;
 using System.Web.UI;
 using Tools;
 
@@ -70,8 +71,8 @@ public partial class Mantenimiento_Usuarios_UsuariosNew : System.Web.UI.Page
         {
             var perfil = PerfilController.GetAll(new PerfilBean { FlgHabilitado = "T" });
             Utility.ComboNuevo(MddlIdPerfil, perfil, "IdPerfil", "Descripcion");
-            
-            var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" });
+            var codigo = HttpContext.Current.Session["lgn_id"].ToString();
+            var canal = NegocioController.GetAll(new NegocioBean { Nombre = "" },codigo);
             Utility.ComboNuevo(MddlIdCanal, canal, "IdNegocio", "Nombre");
         }
         catch (Exception ex)

@@ -338,6 +338,10 @@
                 $('#MtxtReferenciaI').val('');
                 $('#chkHabilitadoI').prop("checked", true);
             }
+
+            $('#MddlIdNegocio').on('change', function () {
+                cargaComboMulti(urlPrin + '/ComboUsuarios', "#MddlIdUsuario", { negocioID: $(this).val() });
+            });
         </script>
     </form>
 </body>
