@@ -143,23 +143,19 @@
                     </div>
                     <div class="col-sm-12 form-group">
                         <label for="txtMail">Mail</label>
-                        <span style="color: #b94a48">*</span>
                         <input type="text" id="txtMail" runat="server" disabled="disabled" class="form-control" maxlength="80" />
                     </div>
                     <div class="col-sm-12 form-group">
                         <label for="txtTelefono">Telefono</label>
-                        <span style="color: #b94a48">*</span>
                         <input type="text" id="txtTelefono" runat="server" disabled="disabled" class="form-control" maxlength="80" />
                     </div>
                     <div class="col-sm-12 form-group">
-                        <span style="color: #b94a48">*</span>
                         <label for="txtCargo">Cargo</label>
                         <input type="text" id="txtCargo" runat="server" disabled="disabled" class="form-control" maxlength="80" />
                     </div>
                     <div class="col-sm-12 form-group">
                         <label for="txtObservaciones">Observaciones</label>
-                        <span style="color: #b94a48">*</span>
-                        <textarea id="txtObservaciones" runat="server" class="requerid form-control" rows="4" maxlength="80"></textarea>
+                        <textarea id="txtObservaciones" runat="server" class="form-control" rows="4" maxlength="400"></textarea>
                     </div>
                     <div class="col-sm-12 form-group">
                         <button type="button" class="btn btn-danger form-control" id="saveRegD">Guardar</button>

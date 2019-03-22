@@ -62,11 +62,11 @@ public partial class Reporte_Actividad_Resumido : PageController
             List<Combo> lstCampos = new List<Combo>();
 
             lstCampos.Add(new Combo { Codigo = "[Fecha]", Nombre = "Fecha" });
-            lstCampos.Add(new Combo { Codigo = "[Canal]", Nombre = "Canal" });
+            lstCampos.Add(new Combo { Codigo = "[Negocio]", Nombre = "Negocio" });
             lstCampos.Add(new Combo { Codigo = "[Zona]", Nombre = "Zona" });
             lstCampos.Add(new Combo { Codigo = "[Tipo Actividad]", Nombre = "Tipo Actividad" });
             lstCampos.Add(new Combo { Codigo = "[Sub Tipo Actividad]", Nombre = "Sub Tipo Actividad" });
-            lstCampos.Add(new Combo { Codigo = "[Usuario]", Nombre = "Usuario" });
+            lstCampos.Add(new Combo { Codigo = "[Vendedor]", Nombre = "Vendedor" });
             lstCampos.Add(new Combo { Codigo = "[Cliente]", Nombre = "Cliente" });
 
             List<ListItem> lstComboBean = lstCampos.

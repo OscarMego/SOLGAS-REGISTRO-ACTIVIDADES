@@ -225,7 +225,7 @@ namespace Model
                         {
                             Codigo = row["Codigo"].ToString(),
                             Fecha = row["Fecha"].ToString(),
-                            Canal = row["Canal"].ToString(),
+                            Canal = row["Negocio"].ToString(),
                             Zona = row["Zona"].ToString(),
                             TipoActividad = row["Tipo Actividad"].ToString(),
                             DetalleActividad = row["Sub Tipo Actividad"].ToString(),
@@ -730,7 +730,7 @@ namespace Model
             }
             return lobj;
         }
-        public static List<Combo> GetClientesZonCan(String cliente, String idZona, String idCanal)
+        public static List<Combo> GetClientesZonCan(String cliente, String idZona, String idCanal,String idTipoActividad,String idUsuario)
         {
             List<Combo> lobj = new List<Combo>();
             ArrayList alParameters = new ArrayList();
@@ -743,6 +743,13 @@ namespace Model
             alParameters.Add(parameter);
             parameter = new SqlParameter("@idZona", SqlDbType.BigInt);
             parameter.Value = idZona;
+            alParameters.Add(parameter);
+
+            parameter = new SqlParameter("@idTipoActividad", SqlDbType.BigInt);
+            parameter.Value = idTipoActividad;
+            alParameters.Add(parameter);
+            parameter = new SqlParameter("@idUsuario", SqlDbType.BigInt);
+            parameter.Value = idUsuario;
             alParameters.Add(parameter);
 
             DataTable dt = SqlConnector.getDataTable("spS_ManSelGRClienteZonCan", alParameters);

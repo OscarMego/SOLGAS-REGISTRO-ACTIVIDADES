@@ -53,7 +53,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-7 col-md-8 titulo">
-                            <h2><i class="far fa-clipboard"></i><%=Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.MAN_WEB_GENERAL) %></h2>
+                            <h2><i class="far fa-clipboard"></i>Mantenimiento de <%=Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.MAN_WEB_GENERAL) %></h2>
                         </div>
                         <div class="col-xs-5 col-md-4">
 

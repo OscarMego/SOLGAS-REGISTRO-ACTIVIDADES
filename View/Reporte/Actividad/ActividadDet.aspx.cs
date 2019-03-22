@@ -36,7 +36,7 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
                 if (dataJSON != null)
                 {
                     myModalLabel.InnerText = "Detalle de Tiempos por etapa";
-                    codigo = dataJSON["codigo"].ToString();                   
+                    codigo = dataJSON["codigo"].ToString();
                     List<OportunidadBean> letapa = OportunidadController.GetReporteDetalle(codigo);
                     litGrillaDetalle.Text = DibujaTabla(letapa);
 
@@ -47,16 +47,17 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
 
     public String DibujaTabla(List<OportunidadBean> lst)
     {
+        String idperfil = HttpContext.Current.Session["lgn_perfil"].ToString();
         StringBuilder html = new StringBuilder();
         html.Append("<table class='grilla table' id='Table1' style='width: 100%;'>" +
        "<thead>" +
         "   <tr>" +
          "      <th scope='col'>Fecha</th>" +
-          "     <th scope='col'>Canal</th>" +
+          "     <th scope='col'>Negocio</th>" +
           "     <th scope='col'>Zona</th>" +
           "     <th scope='col'>Tipo Actividad</th>" +
         "     <th scope='col'>Sub Tipo de Actividad</th>" +
-        "     <th scope='col'>Usuario</th>" +
+        "     <th scope='col'>Vendedor</th>" +
         "     <th scope='col'>RUC</th>" +
         "     <th scope='col'>Cliente</th>" +
         "     <th scope='col'>Contacto</th>" +
@@ -68,7 +69,10 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
         {
             html.Append("<th scope='col' >" + col.Codigo.Replace("_IMG_", "") + "</th>");
         }
-        html.Append("<th scope='col'>GPS</th>");
+        if (idperfil != "4")
+        {
+            html.Append("<th scope='col'>GPS</th>");
+        }
         html.Append("</tr>");
         html.Append("</thead>");
         html.Append("<tbody>");
@@ -107,13 +111,16 @@ public partial class Reporte_Actividad_ActividadDet : System.Web.UI.Page
                     html.Append("<td align='center' >" + ecd.Nombre + "</td>");
                 }
             }
-            if (eRepor.Latitud != null && eRepor.Latitud != "" && eRepor.Latitud != "0" && eRepor.Longitud != null && eRepor.Longitud != "" && eRepor.Longitud != "0")
+            if (idperfil != "4")
             {
-                html.Append("<td align='center'  > <a href='https://www.google.com/maps/search/?api=1&query=" + eRepor.Latitud + "," + eRepor.Longitud + "' target='_blank'><img src='../../imagery/all/icons/pin.png' style='width:30px'/></a> </td>");
-            }
-            else
-            {
-                html.Append("<td align='center'  ></td>");
+                if (eRepor.Latitud != null && eRepor.Latitud != "" && eRepor.Latitud != "0" && eRepor.Longitud != null && eRepor.Longitud != "" && eRepor.Longitud != "0")
+                {
+                    html.Append("<td align='center'  > <a href='https://www.google.com/maps/search/?api=1&query=" + eRepor.Latitud + "," + eRepor.Longitud + "' target='_blank'><img src='../../imagery/all/icons/pin.png' style='width:30px'/></a> </td>");
+                }
+                else
+                {
+                    html.Append("<td align='center'  ></td>");
+                }
             }
 
             html.Append("</tr>");

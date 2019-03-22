@@ -102,9 +102,9 @@ namespace Controller
         {
             return OportunidadModel.GetGrupos(codigo, idpadre);
         }
-        public static List<Combo> GetClientesZonaCan(String cliente, String idZona, String idCanal)
+        public static List<Combo> GetClientesZonaCan(String cliente, String idZona, String idCanal,String idTipoActividad,String idUsuario)
         {
-            return OportunidadModel.GetClientesZonCan(cliente, idZona, idCanal);
+            return OportunidadModel.GetClientesZonCan(cliente, idZona, idCanal,idTipoActividad,idUsuario);
         }
         public static List<Combo> GetClientesOpor(String cliente)
         {

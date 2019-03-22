@@ -125,7 +125,7 @@
                             </div>
 
                             <div class="col-sm-4 col-md-2 form-group">
-                                <label for="ddlUsuario">Usuario</label>
+                                <label for="ddlUsuario">Vendedor</label>
                                 <select id="ddlUsuario" multiple="multiple" class="form-control">
                                 </select>
                             </div>

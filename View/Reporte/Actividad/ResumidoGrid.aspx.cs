@@ -79,7 +79,7 @@ namespace View.Mantenimiento.Oportunidad
 
                     if (campo == string.Empty)
                     {
-                        campo = "[Fecha],[Canal],[Zona],[Tipo Actividad],[Sub Tipo Actividad],[Usuario],[Cliente]";
+                        campo = "[Fecha],[Negocio],[Zona],[Tipo Actividad],[Sub Tipo Actividad],[Vendedor],[Cliente]";
                     }
 
                     var item = new OportunidadBean
@@ -179,7 +179,7 @@ namespace View.Mantenimiento.Oportunidad
                     }
                     else if (tipoReporte == "DETALLADO")
                     {
-
+                        String idperfil = HttpContext.Current.Session["lgn_perfil"].ToString();
                         if ((Int32.Parse(pagina) > 0) && (Int32.Parse(pagina) <= paginate.totalPages))
                         {
                             Utility.ConfiguraPaginacion(this.lbTpaginaTop, this.linkPaginaTop,
@@ -197,11 +197,11 @@ namespace View.Mantenimiento.Oportunidad
                            "<thead>" +
                             "   <tr>" +
                              "      <th scope='col'>Fecha</th>" +
-                              "     <th scope='col'>Canal</th>" +
+                              "     <th scope='col'>Negocio</th>" +
                               "     <th scope='col'>Zona</th>" +
                               "     <th scope='col'>Tipo Actividad</th>" +
                             "     <th scope='col'>Sub Tipo de Actividad</th>" +
-                            "     <th scope='col'>Usuario</th>" +
+                            "     <th scope='col'>Vendedor</th>" +
                             "     <th scope='col'>RUC</th>" +
                             "     <th scope='col'>Cliente</th>" +
                             "     <th scope='col'>Contacto</th>" +
@@ -213,7 +213,10 @@ namespace View.Mantenimiento.Oportunidad
                             {
                                 html.Append("<th scope='col' >" + col.Codigo.Replace("_IMG_", "") + "</th>");
                             }
-                            html.Append("<th scope='col'>GPS</th>");
+                            if (idperfil != "4")
+                            {
+                                html.Append("<th scope='col'>GPS</th>");
+                            }
                             html.Append("</tr>");
                             html.Append("</thead>");
                             html.Append("<tbody>");
@@ -252,13 +255,16 @@ namespace View.Mantenimiento.Oportunidad
                                         html.Append("<td align='center' >" + ecd.Nombre + "</td>");
                                     }
                                 }
-                                if (eRepor.Latitud != null && eRepor.Latitud != "" && eRepor.Latitud != "0" && eRepor.Longitud != null && eRepor.Longitud != "" && eRepor.Longitud != "0")
+                                if (idperfil != "4")
                                 {
-                                    html.Append("<td align='center'  > <a href='https://www.google.com/maps/search/?api=1&query=" + eRepor.Latitud + "," + eRepor.Longitud + "' target='_blank'><img src='../../imagery/all/icons/pin.png' style='width:30px'/></a> </td>");
-                                }
-                                else
-                                {
-                                    html.Append("<td align='center'  ></td>");
+                                    if (eRepor.Latitud != null && eRepor.Latitud != "" && eRepor.Latitud != "0" && eRepor.Longitud != null && eRepor.Longitud != "" && eRepor.Longitud != "0")
+                                    {
+                                        html.Append("<td align='center'  > <a href='https://www.google.com/maps/search/?api=1&query=" + eRepor.Latitud + "," + eRepor.Longitud + "' target='_blank'><img src='../../imagery/all/icons/pin.png' style='width:30px'/></a> </td>");
+                                    }
+                                    else
+                                    {
+                                        html.Append("<td align='center'  ></td>");
+                                    }
                                 }
 
                                 html.Append("</tr>");

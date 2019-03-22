@@ -47,9 +47,9 @@
                                     <label for="MddlIdPerfil">Perfil</label>
                                     <span style="color: #b94a48">*</span>
                                     <asp:DropDownList ID="MddlIdPerfil" runat="server" class="requerid form-control"></asp:DropDownList>
-                                </div>                                
-                                <div class="col-sm-6 form-group">
-                                    <label for="MddlIdPerfil">Negocio</label>
+                                </div>
+                                <div class="col-sm-6 form-group" id="divNegocio">
+                                    <label for="MddlIdCanal">Negocio</label>
                                     <span style="color: #b94a48">*</span>
                                     <asp:DropDownList ID="MddlIdCanal" runat="server" class="requerid form-control"></asp:DropDownList>
                                 </div>
@@ -117,15 +117,22 @@
             function ObtenerGrupo(perfil) {
                 //cargaComboMulti("Usuarios.aspx" + '/ComboMultPerfilusuario', "#MddlVendedor", { usuario: $("#MtxtIdUsuario").val(), perfil: perfil });
                 if (perfil == "5") {
+                    $("#divNegocio").show();
                     $("#divVendedor").show();
                     $("#MddlVendedor").addClass("requerid");
+                    $("#MddlIdCanal").addClass("requerid");
+                } else if (perfil == "2" || perfil == "6") {
+                    $("#divNegocio").hide();
+                    $("#MddlIdCanal").removeClass("requerid");
                 } else {
+                    $("#divNegocio").show();
                     $("#divVendedor").hide();
                     $("#MddlVendedor").removeClass("requerid");
+                    $("#MddlIdCanal").addClass("requerid");
                 }
             }
             function getData() {//funcion encargada de enviar los parametros para la insercion o edicion
-
+                debugger
                 var strData = new Object();
                 strData.IdUsuario = $('#MtxtIdUsuario').val();
                 strData.Codigo = $('#MtxtCodigo').val();
@@ -135,7 +142,7 @@
                 strData.clave = $('#MtxtClave').val();
                 strData.CamClave = (camClave == 1 ? 'T' : 'F');
                 strData.IdPerfil = $('#MddlIdPerfil').val();
-                strData.IdCanal = $('#MddlIdCanal').val();
+                strData.IdCanal = $('#MddlIdCanal').val() == '' ? '0' : $('#MddlIdCanal').val();
                 strData.Vendedores = ValorComboMultSinAll('#MddlVendedor');
                 strData.Modificable = ($('#chkmodificable').is(':checked') ? 'T' : 'F');
                 strData.accion = $('#MhAccion').val();

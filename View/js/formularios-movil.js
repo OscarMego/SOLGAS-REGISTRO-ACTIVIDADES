@@ -20,7 +20,6 @@ $(document).ready(function () {
         endDate: nowDate
     });
     $("#cboSubTipoActividad").change(function (e) {
-        debugger
         var codigoConf = $(this).val();
         var urlObtenerContiguracion = "ObtenerConfiguracion";
         var codTipoActividad = $('#cboTipoActividad').val();
@@ -48,7 +47,6 @@ $(document).ready(function () {
             cache: false,
             data: JSON.stringify({ CodigoConf: codigoConf, IdOp: IdOp, tipoActividad: codTipoActividad }),
             success: function (result) {
-                debugger
                 var data = result.d;// $.parseJSON(result.d);                
                 $("#DivAutogenerado").html('');
                 $.each(data, function (index, dt) {
@@ -77,28 +75,6 @@ $(document).ready(function () {
             }
         });
     });
-    $('#txtCliente').autocomplete({
-        serviceUrl: urlFillCliente,
-        onSelect: function (suggestion) {
-            //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-            $(this).attr("idval", suggestion.data);
-            $('#hdiCodClie').val(suggestion.data);
-        },
-        onSearchStart: function (params) {
-            $(this).attr("idval", "");
-            $('#hdiCodClie').val('');
-            //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-        },
-        paramName: 'query',
-        transformResult: function (response) {
-            response = $.parseJSON(response);
-            return {
-                suggestions: $.map(response, function (dataItem) {
-                    return { value: dataItem.Nombre, data: dataItem.Codigo };
-                })
-            };
-        }
-    });
 
     $('#cboTipoActividad').change(function () {
         var codTipo = $(this).val();
@@ -112,7 +88,6 @@ $(document).ready(function () {
             cache: false,
             data: JSON.stringify({ Id: codTipo }),
             success: function (data) {
-                debugger
                 if (data.d != null) {
                     if (data.d.oportunidad == 'T') {
                         $('#dvCambiarEtapa').show();
@@ -144,7 +119,28 @@ $(document).ready(function () {
                 addnotify("notify", jQuery.parseJSON(xhr.responseText).Message, "registeruser");
             }
         });
-
+        $('#txtCliente').autocomplete({
+            serviceUrl: urlFillCliente + '?idTipoActividad=' + codTipo,
+            onSelect: function (suggestion) {
+                //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+                $(this).attr("idval", suggestion.data);
+                $('#hdiCodClie').val(suggestion.data);
+            },
+            onSearchStart: function (params) {
+                $(this).attr("idval", "");
+                $('#hdiCodClie').val('');
+                //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            },
+            paramName: 'query',
+            transformResult: function (response) {
+                response = $.parseJSON(response);
+                return {
+                    suggestions: $.map(response, function (dataItem) {
+                        return { value: dataItem.Nombre, data: dataItem.Codigo };
+                    })
+                };
+            }
+        });
     });
     $('#buscar').trigger("click");
     //cargarEventoKeyDown();
@@ -195,6 +191,9 @@ function getCodClie() {
     var strData = new Object();
     strData.CodCliente = $('#txtCliente').attr("idval");
     strData.codInstalacion = $('#txtCodInstalacion').val();
+    strData.buscador = $('#txtBuscarInstalacion').val();
+    strData.buscador = strData.buscador == undefined ? '' : strData.buscador;
+    return strData;
     return strData;
 }
 function getDataDim() {//funcion encargada de enviar los parametros para la insercion o edicion
@@ -215,7 +214,6 @@ function getDataDim() {//funcion encargada de enviar los parametros para la inse
     strData.idContacto = $('#hddIdContacto').val();
     strData.codInstalacion = $('#txtCodInstalacion').val();
     var controlDinam = "";
-    debugger
     $(".controldinamico").each(function () {
         //console.log($(this).attr("idctrl"), $(this).attr("typeCtrl"));
         if ($(this).attr("typectrl") == '9') {
@@ -293,7 +291,7 @@ function obtenerInstalacion() {
         addnotify("notify", "Debe seleccionar un cliente", "registeruser")
         return;
     }
-
+    var buscador = getCodClie().buscador;
     $.ajax({
         type: 'POST',
         url: urlInst,
@@ -304,9 +302,9 @@ function obtenerInstalacion() {
         data: JSON.stringify(getCodClie()),
         success: function (data) {
             var instalacion = data.d;
-            var html = "";
+            var html = "<input type='text' id='txtBuscarInstalacion' class='form-control' value='" + buscador + "'/><div class='btn btn-danger form-control' onclick='obtenerInstalacion();' maxlength='100'>Buscar</div><hr>";
             for (var i = 0; i < instalacion.length; i++) {
-                html = html + "<div class=\'instalaciones\'><span class=\'codInstalacion\' style=\'font-weight\:bold;'> " + instalacion[i].CodInstalacion + "</span><br><span class=\'IDClienteInstalacion\' hidden=\hidden\'>" + instalacion[i].IDClienteInstalacion + "</span><strong>Descripcion: </strong><span class=\'desInstalacion\'>" + instalacion[i].Descripcion + "</span><br><div class=\'col-md-12\ row'><div class=\'col-md-6 \ row'><strong>Direccion: </strong><span class=\'insDireccion\'>" + instalacion[i].Direccion + "</span></div><strong>Referencia: </strong><span class=\'insReferencia\'>" + instalacion[i].Referencia + "</span></div></div><br><hr>";
+                html = html + "<div class=\'instalaciones\'><span class=\'codInstalacion\' style=\'font-weight\:bold;'>" + instalacion[i].CodInstalacion + "</span><br><span class=\'IDClienteInstalacion\' hidden=\hidden\'>" + instalacion[i].IDClienteInstalacion + "</span><strong>Descripcion: </strong><span class=\'desInstalacion\'>" + instalacion[i].Descripcion + "</span><br><div class=\'col-md-12\ row'><div class=\'col-md-6 \ row'><strong>Direccion: </strong><span class=\'insDireccion\'>" + instalacion[i].Direccion + "</span></div><strong>Referencia: </strong><span class=\'insReferencia\'>" + instalacion[i].Referencia + "</span></div></div><br><hr>";
             }
             $('#ContactosLista').html(html);
             $('.instalaciones').click(function () {

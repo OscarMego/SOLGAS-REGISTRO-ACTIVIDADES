@@ -6,11 +6,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Tools;
 
 namespace View.Mantenimiento.Cliente
@@ -41,7 +39,7 @@ namespace View.Mantenimiento.Cliente
                         ClienteBean obj = ClienteController.Get(new ClienteBean { CLI_PK = int.Parse(dataJSON["codigo"].ToString()) });
                         myModalLabel.InnerText = "Editar " + Model.bean.IdiomaCultura.getMensaje(Model.bean.IdiomaCultura.WEB_CLIENTE);
                         List<ClienteInstalacionBean> nopaginate = new List<ClienteInstalacionBean>();
-                        nopaginate = ClienteController.getAllInstalacion(Codigo, "-1");
+                        nopaginate = ClienteController.getAllInstalacion(Codigo, "-1","");
                         if (obj != null)
                         {
                             hdIdCliente.Value = (obj.CLI_PK).ToString();
@@ -98,7 +96,7 @@ namespace View.Mantenimiento.Cliente
                 throw new Exception("ERROR: " + ex.Message);
             }
         }
-       
+
         public String DibujaTabla(List<ClienteInstalacionBean> lst)
         {
             String GenTabla = "";
@@ -111,50 +109,85 @@ namespace View.Mantenimiento.Cliente
                               "     <th scope='col'>Dirección</th>" +
                               "     <th scope='col'>Referencia</th>" +
             "     <th scope='col'>Zona</th>" +
-            "     <th scope='col'>Usuario</th>";
+            "     <th scope='col'>Vendedor</th>";
             GenTabla += "     <th scope='col'><i class='fas fa-pencil-alt'></i></th>";
-            GenTabla += "     <th scope='col'><i class='fa fa-trash-alt'></i></th>";
+            GenTabla += "     <th scope='col'><i id='itemEdit' class='fa fa-trash-alt'></i></th>";
             GenTabla += "</tr>";
             GenTabla += "</thead>";
             GenTabla += "<tbody>";
-            GenTabla += fndibujaTr(lst);
+            GenTabla += fndibujaTr(lst, "T");
 
             GenTabla += "</tbody>" + "</table>";
             return GenTabla;
         }
-        public static String fndibujaTr(List<ClienteInstalacionBean> list)
+        public static String fndibujaTr(List<ClienteInstalacionBean> list, String habilitado)
         {
             String dibutaTr = "";
             int row = 0, row2 = 0;
             foreach (var item2 in list)
             {
-                if (item2.Habilitado == "T")
+                if (habilitado == "T")
                 {
-                    dibutaTr += "<tr " + (row2 % 2 == 0 ? "class='file'" : "") + ">" +
-                "<td align='center'>" + row2++ + "</td>" +
-                 "<td align='center'>" + item2.CodInstalacion + "</td>" +
-                "<td align='center'>" + item2.Descripcion + "</td>" +
-                "<td align='center'>" + item2.Direccion + "</td>" +
-                "<td align='center'>" + item2.Referencia + "</td>" +
-                "<td align='center'>" + item2.Zona + "</td>" +
-                "<td align='center'>" + item2.Usuario + "</td>" +
-                "<td  align='center' style='width:5%;'>" +
-                    " <button type='button' class='btn nuevo editItemReg2 movil' title='Editar' cod='" + row + "'> " +
-                    " <i class='fas fa-pencil-alt'></i> " +
-                    "  </button>" +
-                "  </td>" +
-                "<td align='center' style='width:5%;'>" +
-                "  <button type='button' class='btn nuevo delItemRegCtr movil' title='Borrar' cod='" + row + "'>" +
-                "   <i class='fa fa-trash-alt'></i>" +
-                "     </button>" +
-            " </td>" +
-            "</tr>";
+                    if (item2.Habilitado == "T")
+                    {
+                        dibutaTr += "<tr " + (row2 % 2 == 0 ? "class='file'" : "") + ">" +
+                    "<td align='center'>" + row2++ + "</td>" +
+                     "<td align='center'>" + item2.CodInstalacion + "</td>" +
+                    "<td align='center'>" + item2.Descripcion + "</td>" +
+                    "<td align='center'>" + item2.Direccion + "</td>" +
+                    "<td align='center'>" + item2.Referencia + "</td>" +
+                    "<td align='center'>" + item2.Zona + "</td>" +
+                    "<td align='center'>" + item2.Usuario + "</td>" +
+                    "<td  align='center' style='width:5%;'>" +
+                        " <button type='button' class='btn nuevo editItemReg2 movil' title='Editar' cod='" + item2.Index + "'> " +
+                        " <i class='fas fa-pencil-alt'></i> " +
+                        "  </button>" +
+                    "  </td>" +
+                    "<td align='center' style='width:5%;'>" +
+                    "  <button type='button' class='btn nuevo delItemRegCtr movil' title='Borrar' cod='" + item2.Index + "'>" +
+                    "   <i class='fa fa-trash-alt'></i>" +
+                    "     </button>" +
+                " </td>" +
+                "</tr>";
+                    }
+                }
+                else
+                {
+                    if (item2.Habilitado == "F")
+                    {
+                        dibutaTr += "<tr " + (row2 % 2 == 0 ? "class='file'" : "") + ">" +
+                    "<td align='center'>" + row2++ + "</td>" +
+                     "<td align='center'>" + item2.CodInstalacion + "</td>" +
+                    "<td align='center'>" + item2.Descripcion + "</td>" +
+                    "<td align='center'>" + item2.Direccion + "</td>" +
+                    "<td align='center'>" + item2.Referencia + "</td>" +
+                    "<td align='center'>" + item2.Zona + "</td>" +
+                    "<td align='center'>" + item2.Usuario + "</td>" +
+                    "<td  align='center' style='width:5%;'>" +
+                        " <button type='button' class='btn nuevo editItemReg2 movil' title='Editar' cod='" + item2.Index + "'> " +
+                        " <i class='fas fa-pencil-alt'></i> " +
+                        "  </button>" +
+                    "  </td>" +
+                    "<td align='center' style='width:5%;'>" +
+                    "  <button type='button' class='btn nuevo restaurarInstalacion movil' title='Restaurar' cod='" + item2.Index + "'>" +
+                    "   <i class='fa fa-redo-alt'></i>" +
+                    "     </button>" +
+                " </td>" +
+                "</tr>";
+                    }
                 }
 
                 row++;
             }
 
             HttpContext.Current.Session["lstClienteInstalacion"] = list;
+            return dibutaTr;
+        }
+        [WebMethod]
+        public static String listarInstalaciones(String eliminado)
+        {
+            var list = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
+            string dibutaTr = fndibujaTr(list, eliminado);
             return dibutaTr;
         }
         [WebMethod]
@@ -175,7 +208,7 @@ namespace View.Mantenimiento.Cliente
                 Usuario = nombreUsuario
             };
             var list = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
-            item.Index = (list.Count).ToString();
+            item.Index = (list.Count + 1).ToString();
             if (list == null)
             {
                 list = new List<ClienteInstalacionBean>();
@@ -189,21 +222,27 @@ namespace View.Mantenimiento.Cliente
                 }
                 else
                 {
-                    list[int.Parse(index) - 1].IDCliente = IdCliente;
-                    list[int.Parse(index) - 1].Descripcion = Descripcion;
-                    list[int.Parse(index) - 1].IDUsuario = IdUsuario;
-                    list[int.Parse(index) - 1].CodInstalacion = codInstalacion;
-                    list[int.Parse(index) - 1].IDZona = idZona;
-                    list[int.Parse(index) - 1].Descripcion = Descripcion;
-                    list[int.Parse(index) - 1].Direccion = Direccion;
-                    list[int.Parse(index) - 1].Referencia = Referencia;
-                    list[int.Parse(index) - 1].Habilitado = "T";
-                    list[int.Parse(index) - 1].Zona = nombreZona;
-                    list[int.Parse(index) - 1].Usuario = nombreUsuario;
+                    foreach (ClienteInstalacionBean obj in list)
+                    {
+                        if (index == obj.Index)
+                        {
+                            obj.IDCliente = IdCliente;
+                            obj.Descripcion = Descripcion;
+                            obj.IDUsuario = IdUsuario;
+                            obj.CodInstalacion = codInstalacion;
+                            obj.IDZona = idZona;
+                            obj.Descripcion = Descripcion;
+                            obj.Direccion = Direccion;
+                            obj.Referencia = Referencia;
+                            obj.Habilitado = Habilitado;
+                            obj.Zona = nombreZona;
+                            obj.Usuario = nombreUsuario;
+                        }
+                    }
                 }
             }
             String dibutaTr = "";
-            dibutaTr = fndibujaTr(list);
+            dibutaTr = fndibujaTr(list, Habilitado);
             HttpContext.Current.Session["lstClienteInstalacion"] = list;
             return dibutaTr;
         }
@@ -212,7 +251,16 @@ namespace View.Mantenimiento.Cliente
         [WebMethod]
         public static ClienteInstalacionBean EditarInstalacion(string Codigo, string Index)
         {
-            ClienteInstalacionBean obj = ((List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"])[int.Parse(Index)];
+            List<ClienteInstalacionBean> objList = ((List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"]);
+            ClienteInstalacionBean obj = null;
+            foreach (ClienteInstalacionBean obj1 in objList)
+            {
+                if (Index == obj1.Index)
+                {
+                    obj = obj1;
+                    break;
+                }
+            }
             return obj;
         }
 
@@ -220,15 +268,44 @@ namespace View.Mantenimiento.Cliente
         public static String EliminarInstalacion(string index)
         {
             List<ClienteInstalacionBean> list = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
-            ClienteInstalacionBean obj = (list)[int.Parse(index)];
-            obj.Habilitado = "F";
             String dibutaTr = "";
-            if (obj.IDClienteInstalacion == "" || obj.IDClienteInstalacion == "0")
+            int contador = 0;
+            foreach (ClienteInstalacionBean obj in list)
             {
-                list.RemoveAt(int.Parse(index));
+                if (obj.Index == index)
+                {
+                    obj.Habilitado = "F";
+                    if (string.IsNullOrEmpty(obj.IDClienteInstalacion) || obj.IDClienteInstalacion == "0")
+                    {
+                        list.RemoveAt(contador);
+                    }
+                    break;
+                }
+                contador++;
             }
             HttpContext.Current.Session["lstClienteInstalacion"] = list;
-            dibutaTr = fndibujaTr(list);
+            dibutaTr = fndibujaTr(list, "T");
+            return dibutaTr;
+        }
+
+        [WebMethod]
+        public static String RestaurarInstalacion(String codigo, string index)
+        {
+            List<ClienteInstalacionBean> list = (List<ClienteInstalacionBean>)HttpContext.Current.Session["lstClienteInstalacion"];
+            foreach (ClienteInstalacionBean obj in list)
+            {
+                if (index == obj.Index)
+                {
+                    obj.Habilitado = "T"; break;
+                }
+            }
+            String dibutaTr = "";
+            //if (obj.IDClienteInstalacion == "" || obj.IDClienteInstalacion == "0")
+            //{
+            //    list.RemoveAt(int.Parse(index));
+            //}
+            HttpContext.Current.Session["lstClienteInstalacion"] = list;
+            dibutaTr = fndibujaTr(list, "F");
             return dibutaTr;
         }
     }

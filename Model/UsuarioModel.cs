@@ -38,7 +38,14 @@ namespace Model
             parameter.Value = item.IdPerfil;
             alParameters.Add(parameter);
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
-            parameter.Value = item.IdCanal;
+            if (item.IdCanal == 0)
+            {
+                parameter.Value = DBNull.Value;
+            }
+            else
+            {
+                parameter.Value = item.IdCanal;
+            }
             alParameters.Add(parameter);
             parameter = new SqlParameter("@VerificaAD", SqlDbType.VarChar, 100);
             parameter.Value = item.FlgActiveDirectory;
@@ -74,9 +81,16 @@ namespace Model
             parameter = new SqlParameter("@IdPerfil", SqlDbType.BigInt);
             parameter.Value = item.IdPerfil;
             alParameters.Add(parameter);
-            
+
             parameter = new SqlParameter("@IdCanal", SqlDbType.BigInt);
-            parameter.Value = item.IdCanal;
+            if (item.IdCanal == 0)
+            {
+                parameter.Value = DBNull.Value;
+            }
+            else
+            {
+                parameter.Value = item.IdCanal;
+            }
             alParameters.Add(parameter);
 
             parameter = new SqlParameter("@EditPass", SqlDbType.VarChar, 1);
@@ -317,7 +331,7 @@ namespace Model
                         NombreCanal = row["NombreCanal"].ToString(),
                         IdCanal = int.Parse(row["IdCanal"].ToString()),
                         NombrePerfil = row["NombrePerfil"].ToString(),
-                        IdPerfil= int.Parse(row["IdPerfil"].ToString())
+                        IdPerfil = int.Parse(row["IdPerfil"].ToString())
                     }
                     ;
                     lobj.Add(obj);

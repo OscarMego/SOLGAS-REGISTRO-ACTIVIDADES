@@ -414,12 +414,12 @@ namespace View.Movil.B2B
 
 
         [WebMethod]
-        public static List<ClienteInstalacionBean> getInstalacion(String CodCliente)
+        public static List<ClienteInstalacionBean> getInstalacion(String CodCliente,String buscador)
         {
             try
             {
                 var usuSession = HttpContext.Current.Session["lgn_id"].ToString();
-                List<ClienteInstalacionBean> item = ClienteController.getAllInstalacion(CodCliente, usuSession);
+                List<ClienteInstalacionBean> item = ClienteController.getAllInstalacion(CodCliente, usuSession,buscador);
                 return item;
             }
             catch (Exception ex)

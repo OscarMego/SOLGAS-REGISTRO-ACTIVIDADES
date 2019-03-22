@@ -229,6 +229,15 @@ namespace View.Mantenimiento.Cliente {
         protected global::System.Web.UI.WebControls.DropDownList MddlIdUsuario;
         
         /// <summary>
+        /// Control divInstalaciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstalaciones;
+        
+        /// <summary>
         /// Control litGrillaInstalacion.
         /// </summary>
         /// <remarks>

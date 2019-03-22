@@ -64,7 +64,7 @@
                     <asp:BoundField DataField="LoginUsuario" HeaderText="Login" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Nombres" HeaderText="Nombres" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="NombrePerfil" HeaderText="Perfil" ItemStyle-HorizontalAlign="Center" />
-                     <asp:BoundField DataField="NombreCanal" HeaderText="Canal" ItemStyle-HorizontalAlign="Center" />
+                     <asp:BoundField DataField="NombreCanal" HeaderText="Negocio" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="Email" HeaderText="Correo Electrónico" ItemStyle-HorizontalAlign="Center" />
 
                     <asp:TemplateField ItemStyle-Width="5%" ItemStyle-HorizontalAlign="Center" ItemStyle-CssClass="tbmovil">
@@ -152,7 +152,7 @@
                     //$('#DivRestContenedor').hide();
                 } else {
                     urlImg = "../../imagery/all/icons/restaurar.png";
-                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').val('Restaurar');
+                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').attr('title', 'Restaurar');
                     $('.changeOption').find('i').removeClass('fa-trash-alt').addClass('fa-redo-alt');
                     //$('#DivDelContenedor').hide();
                     //$('#DivRestContenedor').show();

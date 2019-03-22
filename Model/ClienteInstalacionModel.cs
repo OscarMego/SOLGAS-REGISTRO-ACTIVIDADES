@@ -38,7 +38,7 @@ namespace Model
             }
             return lobj;
         }
-        public static List<ClienteInstalacionBean> getAll(string idCliente,String idusuario)
+        public static List<ClienteInstalacionBean> getAll(string idCliente,String idusuario,String buscador)
         {
             List<ClienteInstalacionBean> lobj = new List<ClienteInstalacionBean>();
             ArrayList alParameters = new ArrayList();
@@ -48,6 +48,9 @@ namespace Model
             alParameters.Add(parameter);
             parameter = new SqlParameter("@idusuario", SqlDbType.VarChar, 50);
             parameter.Value = idusuario;
+            alParameters.Add(parameter);
+            parameter = new SqlParameter("@buscador", SqlDbType.VarChar, 100);
+            parameter.Value = buscador;
             alParameters.Add(parameter);
             DataTable dt = SqlConnector.getDataTable("spS_ManSelGRClienteInstalacionAll", alParameters);
             if (dt != null && dt.Rows.Count > 0)

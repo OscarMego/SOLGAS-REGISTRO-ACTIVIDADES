@@ -39,7 +39,8 @@
             </div>
         </div>
         <div id="divGridView" class="tb-pc" runat="server">
-            <div class="head-gri"><input id="ChkAll" name="chkSelectAll" type="checkbox"></div>
+            <div class="head-gri">
+                <input id="ChkAll" name="chkSelectAll" type="checkbox"></div>
             <asp:GridView ID="grdMant" GridLines="None" AlternatingRowStyle-CssClass="file"
                 runat="server" AutoGenerateColumns="False"
                 CssClass="grilla table" Style="width: 100%;">
@@ -48,7 +49,7 @@
                         <HeaderTemplate>
                             <input id="ChkAll" name="chkSelectAll" type="checkbox" class="tbmovil">
                         </HeaderTemplate>
-                        <ItemTemplate >
+                        <ItemTemplate>
                             <input id='<%# Eval("IdZona") %>' value="<%# Eval("IdZona") %>" type="checkbox">
                             <div class="btnmovil">
                                 <button type="button" class="btn nuevo movil editItemReg" title="Editar"
@@ -147,7 +148,7 @@
                     //$('#DivRestContenedor').hide();
                 } else {
                     urlImg = "../../imagery/all/icons/restaurar.png";
-                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').val('Restaurar');
+                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').attr('title','Restaurar');
                     $('.changeOption').find('i').removeClass('fa-trash-alt').addClass('fa-redo-alt');
                     //$('#DivDelContenedor').hide();
                     //$('#DivRestContenedor').show();

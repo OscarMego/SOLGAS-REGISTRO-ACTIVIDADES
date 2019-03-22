@@ -7,10 +7,10 @@ $(document).ready(function () {
         $(".filtergrid").show();
         $(this).removeClass('showFilter').addClass('hideFilter');
     });
-    $('.embed-container').css({ "padding-bottom": ((($(window).height() - 110) / $(window).width()) * 100) + "%" });
+    $('.embed-container').css({ "padding-bottom": ((($(window).height() - 80) / $(window).width()) * 100) + "%" });
     $(window).on('resize', function () {
         var win = $(this); //this = window
-        $('.embed-container').css({ "padding-bottom": (((win.height() - 110) / win.width()) * 100) + "%" });
+        $('.embed-container').css({ "padding-bottom": (((win.height() - 80) / win.width()) * 100) + "%" });
         //console.log((win.height() / win.width()) * 100);
         //console.log(win.height());
         //console.log(win.width());

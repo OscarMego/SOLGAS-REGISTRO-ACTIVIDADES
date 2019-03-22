@@ -2034,7 +2034,7 @@ label.checkbox.mult {
 
 .embed-container {
     position: relative;
-    padding-bottom: 40.25%;
+    padding-bottom: 100%;
     height: 0;
     overflow: hidden;
 }
@@ -2108,9 +2108,9 @@ label.checkbox.mult {
 }
 
 @media (max-width: 480px) {
-    .embed-container {
+    /*.embed-container {
         padding-bottom: 180%;
-    }
+    }*/
 
     #cz-form-step-image-text-left a, #cz-form-step-image-text-center a, #cz-form-step-image-text-right a {
         font-size:10px;    

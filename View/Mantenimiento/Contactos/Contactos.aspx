@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-xs-7 col-md-8 titulo">
                             <h2><i class="far fa-clipboard"></i>
-                                MANTENIMIENTO DE CONTACTOS
+                                Mantenimiento de Contactos
                                <%-- <%=Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.MAN_WEB_CONTACTO) %>--%></h2>
                         </div>
                         <div class="col-xs-5 col-md-4">

@@ -120,14 +120,14 @@
                                     <input type="text" id="MtxtReferenciaI" onkeypress='fc_PermiteNumeros(event,this)' runat="server" class=" form-control requeridCtr" />
                                 </div>
                                 <div class="col-sm-3 form-group">
-                                    <label for="MddlIdUsuario">Usuario</label>
+                                    <label for="MddlIdUsuario">Vendedor</label>
                                     <span style="color: #b94a48">*</span>
                                     <asp:DropDownList ID="MddlIdUsuario" runat="server" class="requeridCtr form-control"></asp:DropDownList>
                                 </div>
                                 <div class="col-sm-3 form-group">
                                     <div class="checkbox">
-                                        <input type="checkbox" class="requeridCtr" name="chkHabilitadoI" value="notify" id="chkHabilitadoI" checked="checked" />
-                                        <label for="chkHabilitadoI">Habilitado</label>
+                                        <input type="checkbox" class="requeridCtr" name="chkMostrarEliminadoI" value="notify" id="chkMostrarEliminadoI" />
+                                        <label for="chkMostrarEliminadoI">Mostrar Eliminados</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 form-group" style="float: right">
@@ -140,7 +140,7 @@
                                 <h4 class="modal-title" style="color: #0057a4" runat="server">Lista de Instalaciones</h4>
                             </div>
                             <div class="row">
-                                <div class="tb-pc-modal" runat="server">
+                                <div class="tb-pc-modal" runat="server" id="divInstalaciones">
                                     <asp:Literal runat="server" ID="litGrillaInstalacion"></asp:Literal>
                                 </div>
                             </div>
@@ -206,6 +206,31 @@
                         }
                     });
                 });
+                $("#Table1").on("click", ".restaurarInstalacion", function () {
+                    var codigo = $('#MtxtCodInstalacion').val();
+                    var index = $(this).attr("cod");
+                    var input = { codigo: codigo, index: index }
+                    param = JSON.stringify(input);
+                    $.ajax({
+                        type: "POST",
+                        url: "ClienteNew.aspx/RestaurarInstalacion",
+                        data: param,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        success: function (data) {
+                            $("#Table1").find("tbody>tr").remove();
+                            $("#Table1").find("tbody").append(data.d);
+                            $('#hdid').val("");
+                            $('#hdidConfOpDe').val("");
+                            clearCamposCtr();
+                        },
+                        error: function (xhr, status, error) {
+                            addnotify("notify", jQuery.parseJSON(xhr.responseText).Message, "registeruser");
+                        }
+                    });
+                });
+                $('#MddlIdNegocio').change();
             });
             function EditarSucces(data) {
                 $('#hdid').val(data.d.Index);
@@ -264,7 +289,7 @@
                 var MtxtDescripcion = $('#MtxtDescripcion').val();
                 var MtxtDireccionI = $('#MtxtDireccionI').val();
                 var MtxtReferenciaI = $('#MtxtReferenciaI').val();
-                var chkHabilitadoI = ($('#chkHabilitadoI').is(':checked') ? 'T' : 'F');
+                var chkHabilitadoI = $("#chkMostrarEliminadoI").is(":checked") ? "F" : "T";
 
                 var validateItems = true;
 
@@ -336,11 +361,39 @@
                 $('#MtxtDescripcion').val('');
                 $('#MtxtDireccionI').val('');
                 $('#MtxtReferenciaI').val('');
-                $('#chkHabilitadoI').prop("checked", true);
+                //$('#chkHabilitadoI').prop("checked", true);
             }
 
             $('#MddlIdNegocio').on('change', function () {
-                cargaComboMulti(urlPrin + '/ComboUsuarios', "#MddlIdUsuario", { negocioID: $(this).val() });
+                //cargaCombo(urlPrin + '/ComboUsuarios', "#MddlIdUsuario", { negocioID: $(this).val() });
+                cargaComboDSL(urlPrin + '/ComboUsuarios', '#MddlIdUsuario', 'SELECCIONE', { negocioID: $(this).val() });
+            });
+            $('#chkMostrarEliminadoI').change(function () {
+                param = JSON.stringify({ eliminado: this.checked ? 'F' : 'T' });
+                $.ajax({
+                    type: "POST",
+                    url: "ClienteNew.aspx/listarInstalaciones",
+                    data: param,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        if ($('#chkMostrarEliminadoI').is(':checked')) {
+                            $('#itemEdit').removeClass('fa fa-trash-alt');
+                            $('#itemEdit').addClass('fa fa-redo-alt')
+                        } else {
+                            $('#itemEdit').removeClass('fa fa-redo-alt');
+                            $('#itemEdit').addClass('fa fa-trash-alt')
+                        }
+                        $("#Table1").find("tbody>tr").remove();
+                        $("#Table1").find("tbody").append(data.d); $('#hdid').val("");
+                        $('#hdidConfOpDe').val("");
+                        clearCamposCtr();
+                    },
+                    error: function (xhr, status, error) {
+                        addnotify("notify", jQuery.parseJSON(xhr.responseText).Message);
+                    }
+                });
             });
         </script>
     </form>

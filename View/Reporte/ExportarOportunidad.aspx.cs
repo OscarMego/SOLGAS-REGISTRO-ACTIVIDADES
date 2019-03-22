@@ -433,7 +433,7 @@ public partial class Reporte_ExportarOportunidad : System.Web.UI.Page
 
         ws.columnHeader.Add("Id");
         ws.columnHeader.Add("Número");
-        ws.columnHeader.Add("Usuario");
+        ws.columnHeader.Add("Vendedor");
         ws.columnHeader.Add("Fecha Envio");
         ws.columnHeader.Add("Fecha Recepción");
         ws.columnHeader.Add("Fecha Lectura");
@@ -470,7 +470,7 @@ public partial class Reporte_ExportarOportunidad : System.Web.UI.Page
         ws.dtSource = dt;
 
         ws.columnHeader.Add("Teléfono");
-        ws.columnHeader.Add("Usuario");
+        ws.columnHeader.Add("Vendedor");
         ws.columnHeader.Add("Grupo");
         ws.columnHeader.Add("Fecha");
         ws.columnHeader.Add("DesGeo");
@@ -505,7 +505,7 @@ public partial class Reporte_ExportarOportunidad : System.Web.UI.Page
 
         //ws.columnHeader.Add("IdRegistro");
         ws.columnHeader.Add("Teléfono");
-        ws.columnHeader.Add("Usuario");
+        ws.columnHeader.Add("Vendedor");
         ws.columnHeader.Add("Grupo");
         ws.columnHeader.Add("Estados");
         ws.columnHeader.Add("Fecha");

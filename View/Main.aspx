@@ -106,7 +106,7 @@
         </div>
 
 
-        <footer class="footer">
+        <footer class="footer" style="display:none">
             <div class="container">
                 <div class="copyright">
                     <%=Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.WEB_AREA_NAME) + " / " + Model.bean.IdiomaCultura.getMensajeEncodeHTML(Model.bean.IdiomaCultura.WEB_APP_NAME)%>

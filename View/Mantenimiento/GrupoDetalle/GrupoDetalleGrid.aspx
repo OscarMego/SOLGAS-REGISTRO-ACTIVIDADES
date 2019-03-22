@@ -189,7 +189,7 @@
                     //$('#DivRestContenedor').hide();
                 } else {
                     urlImg = "../../imagery/all/icons/restaurar.png";
-                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').val('Restaurar');
+                    $('.changeOption').removeClass('delItemReg').addClass('restItemReg').attr('title', 'Restaurar');
                     $('.changeOption').find('i').removeClass('fa-trash-alt').addClass('fa-redo-alt');
                     //$('#DivDelContenedor').hide();
                     //$('#DivRestContenedor').show();

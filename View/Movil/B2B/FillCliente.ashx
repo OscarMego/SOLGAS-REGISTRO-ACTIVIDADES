@@ -8,17 +8,17 @@ using Model.bean;
 using Model;
 using System.Collections.Generic;
 
-public class FillCliente : IHttpHandler,System.Web.SessionState.IRequiresSessionState
+public class FillCliente : IHttpHandler, System.Web.SessionState.IRequiresSessionState
 {
 
     public void ProcessRequest(HttpContext context)
     {
         String match = context.Request.Params["query"];
+        String idTipoActividad = context.Request.Params["idTipoActividad"];
+        var codigo = HttpContext.Current.Session["lgn_id"].ToString();
         String output = "";
         List<Combo> result = new List<Combo>();
-        //String idZona = context.Session["lgn_idzona"].ToString();
-        result = OportunidadController.GetClientesZonaCan(match, null, "1");
-        //lCli.ForEach(x=>result.Add(new Combo{Nombre=x.nombre,Codigo=x.codigo.ToString()}));
+        result = OportunidadController.GetClientesZonaCan(match, null, "1", idTipoActividad, codigo);
         output = Newtonsoft.Json.JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented);
         context.Response.Write(output);
     }
